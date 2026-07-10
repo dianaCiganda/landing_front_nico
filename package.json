@@ -1,0 +1,31 @@
+{
+  "name": "landing_front_nico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  
+    "build": "npx tailwindcss -i ./css/estilos.css -o ./css/output.css --minify",
+    "watch": "npx tailwindcss -i ./css/estilos.css -o ./css/output.css --watch"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dianaCiganda/landing_front_nico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dianaCiganda/landing_front_nico/issues"
+  },
+  "homepage": "https://github.com/dianaCiganda/landing_front_nico#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.3.2"
+  }
+}

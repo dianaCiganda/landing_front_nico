@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nico & Agus - Sobre Nosotros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link rel="stylesheet" href="../css/SobreNosotros.css" />
+</head>
+
+<body>
+
+    <!-- ============ NAVBAR FIJO ============ -->
+    <nav class="navbar-fixed bg-off-white shadow-custom border-b border-warm-gray/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <div class="logo-container">
+                    <img src="../assets/logo.png" alt="Nico & Agus Logo"
+                        class="w-full h-auto max-h-[85px] object-contain" />
+                </div>
+
+                <!-- Links Desktop -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="../index.html"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        Inicio
+                    </a>
+                    <a href="./SobreNosotros.html"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10 bg-warm-gray/10">
+                        Sobre Nosotros
+                    </a>
+                    <a href="#"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        Galería
+                    </a>
+                    <a href="#"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        Preguntas Frecuentes
+                    </a>
+                    <a href="#"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        Contacto
+                    </a>
+                </div>
+
+                <!-- Botón CTA -->
+                <div class="hidden md:block">
+                    <button
+                        class="bg-dark-brown text-off-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom shadow-md hover:shadow-lg">
+                        Reservar Cita
+                    </button>
+                </div>
+
+                <!-- Menú Hamburguesa -->
+                <div class="md:hidden">
+                    <button id="menu-toggle"
+                        class="text-dark-brown hover:text-warm-gray focus:outline-none p-2 rounded-lg hover:bg-warm-gray/10 transition-custom">
+                        <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="md:hidden bg-off-white border-t border-warm-gray/30">
+            <div class="px-4 pt-3 pb-5 space-y-1.5">
+                <a href="../index.html"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    Inicio
+                </a>
+                <a href="./SobreNosotros.html"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    Sobre Nosotros
+                </a>
+                <a href="#"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    Galería
+                </a>
+                <a href="#"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    Preguntas Frecuentes
+                </a>
+                <a href="#"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    Contacto
+                </a>
+                <div class="pt-3">
+                    <button
+                        class="w-full bg-dark-brown text-off-white px-6 py-3 rounded-full text-base font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom">
+                        Reservar Cita
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ CONTENIDO PRINCIPAL ============ -->
+    <main class="bg-off-white pattern-bg pt-20">
+
+        <!-- ===== ENCABEZADO ===== -->
+        <section class="py-12 md:py-16 border-b border-warm-gray/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="inline-block bg-soft-beige/30 text-dark-brown px-4 py-1 rounded-full text-sm font-medium border border-warm-gray/30 mb-4">
+                     Nuestra Historia
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-brown">
+                    De Pringles <span class="text-warm-gray">al mundo</span>
+                </h1>
+                <div class="divider-custom mt-4"></div>
+                <p class="text-dark-brown/60 text-sm md:text-base mt-4 max-w-2xl mx-auto">
+                    Dos apasionados, unidos por la misma forma de entender el arte de realzar la belleza de cada persona.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== HISTORIA DE AGUS ===== -->
+        <section class="py-12 md:py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-3xl shadow-lg p-8 md:p-12 border border-warm-gray/20">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div>
+                            <h2 class="text-2xl font-bold text-dark-brown">Agustina</h2>
+                            <p class="text-sm text-warm-gray">Makeup Artist</p>
+                        </div>
+                    </div>
+                    <div class="story-text text-base md:text-lg space-y-4">
+                        <p>
+                            Mi acercamiento a este mundo empezó hace cinco años, cuando di mis primeros pasos haciendo peinados. En ese momento el maquillaje apareció como un complemento para poder ofrecer un servicio más completo, pero con el tiempo descubrí que era mucho más que eso. Empecé a apasionarme por todo lo que transmitía, por cómo podía resaltar la belleza de cada persona y hacer que se sintiera más segura. Ahí entendí que esto era realmente a lo que quería dedicarme.
+                        </p>
+                        <p>
+                            A partir de ese momento decidí capacitarme, seguir aprendiendo y perfeccionarme constantemente. <strong>Creo que en esta profesión nunca se deja de aprender</strong>, y cada curso, cada experiencia y cada clienta fueron dejando enseñanzas que me hicieron crecer, tanto en lo profesional como en lo personal.
+                        </p>
+                        <p>
+                            Como todo emprendimiento, los comienzos tuvieron sus desafíos. Hubo momentos de incertidumbre, días con pocos turnos y muchas dudas, pero también muchísimas ganas de salir adelante. <strong>Aprendí que con esfuerzo, constancia y pasión se pueden lograr grandes cosas</strong>, y eso es algo que me acompaña hasta el día de hoy.
+                        </p>
+                        <p>
+                            Lo que más disfruto de mi trabajo es poder ser parte de momentos únicos e irrepetibles. Acompañar a una novia, una quinceañera o a cualquier mujer en un día importante es una responsabilidad enorme y, al mismo tiempo, un privilegio. Ver la emoción cuando una clienta se mira por primera vez al espejo y se siente feliz con lo que ve es, sin dudas, <strong>una de las mayores satisfacciones que me da esta profesión</strong>.
+                        </p>
+                        <p>
+                            Hay valores que para mí no se negocian: el compromiso, la puntualidad, el respeto, la escucha y la dedicación. Me gusta que cada clienta se sienta cómoda, contenida y escuchada. Mi estilo busca resaltar la belleza natural de cada persona, adaptando cada maquillaje a sus gustos, su personalidad y la ocasión, sin que deje de sentirse ella misma.
+                        </p>
+                        <p>
+                            Con el tiempo también entendí el valor de trabajar en equipo. Con Nico nos complementamos muy bien: mientras él se encarga del peinado, yo me ocupo del maquillaje. Compartimos la misma forma de trabajar, cuidando cada detalle para que todo el proceso sea tranquilo, organizado y disfrutable. <strong>Creemos que cuando hay conexión entre los profesionales, eso también se refleja en el resultado</strong> y en la experiencia que vive cada clienta.
+                        </p>
+                        <p>
+                            Más allá del maquillaje y el peinado, nuestro objetivo es que cada persona se lleve mucho más que un look. Queremos que se sienta acompañada, cuidada y segura de sí misma. Cuando empecé soñaba con poder vivir de lo que amo y crecer haciendo lo que me apasiona. Hoy ese sueño es una realidad, pero mis ganas de seguir capacitándome, evolucionando y brindando lo mejor en cada trabajo siguen intactas.
+                        </p>
+                        <p class="text-soft-beige font-medium text-lg">
+                            "Por eso me entusiasmó formar parte de este proyecto junto a Nico. Porque siento que compartimos la misma pasión, el mismo compromiso y las mismas ganas de ofrecer una experiencia donde cada detalle importa. Estoy convencida de que cuando trabajás con amor y dedicación, eso se nota, y es justamente lo que queremos transmitir en cada servicio."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GALERÍA 1 - 8 FOTOS DESPUÉS DE AGUS ===== -->
+        <section class="py-12 md:py-16 bg-soft-beige/5 border-t border-warm-gray/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-dark-brown">
+                     <span class="text-warm-gray">Trabajos de Agustina</span>
+                    </h2>
+                    <div class="divider-custom mt-3"></div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <!-- Foto 1 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/maquillaje.jpeg" alt="Trabajo de maquillaje 1"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 2 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/peinado.jpeg" alt="Trabajo de peinado 1"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 3 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/peinado2.jpeg" alt="Trabajo de peinado 2"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 4 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/maquillaje.jpeg" alt="Trabajo de maquillaje 2"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 5 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/peinado.jpeg" alt="Trabajo de peinado 3"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 6 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/peinado2.jpeg" alt="Trabajo de peinado 4"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 7 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/maquillaje.jpeg" alt="Trabajo de maquillaje 3"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 8 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/peinado.jpeg" alt="Trabajo de peinado 5"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HISTORIA DE NICO ===== -->
+        <section class="py-12 md:py-16 bg-soft-beige/10 border-t border-warm-gray/20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-3xl shadow-lg p-8 md:p-12 border border-warm-gray/20">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div>
+                            <h2 class="text-2xl font-bold text-dark-brown">Nicolás Ciganda</h2>
+                            <p class="text-sm text-warm-gray">Hair Stylist</p>
+                        </div>
+                    </div>
+                    <div class="story-text text-base md:text-lg space-y-4">
+                        <p>
+                            Soy Nicolás Ciganda y mi historia empezó mucho antes de convertirme en peluquero.
+                        </p>
+                        <p>
+                            De chico jugaba a peinar y maquillar. Mis amigas eran mis modelos y, sin darme cuenta, ya disfrutaba de crear y transformar. Años después, cuando peiné a una amiga para su graduación, sentí por primera vez que había encontrado mi lugar.
+                        </p>
+                        <p>
+                            Con ese sueño me fui a vivir a Bahía Blanca para formarme profesionalmente. Comencé mis estudios y, al poco tiempo, ya estaba trabajando como asistente de mi profesor. Fueron años de aprendizaje, de recorrer distintos salones, de conocer grandes mentores y de entender que <strong>esta profesión se construye con pasión, disciplina y humildad</strong>.
+                        </p>
+                        <p>
+                            A los 23 años nace <strong>Ciganda Studio</strong> en Coronel Pringles. El cariño y la confianza de mis clientas hicieron crecer ese proyecto, pero mi necesidad de seguir aprendiendo me llevó a vivir una de las experiencias más importantes de mi carrera: <strong>mudarme a la Riviera Maya</strong> para trabajar en una agencia especializada en peinado y maquillaje para bodas internacionales.
+                        </p>
+                        <p>
+                            Allí entendí que acompañar a una novia va mucho más allá de crear un look. Es transmitir tranquilidad, generar confianza y estar presente en uno de los momentos más importantes de su vida. <strong>Esa experiencia cambió para siempre mi manera de trabajar</strong>.
+                        </p>
+                        <p>
+                            De regreso en Argentina seguí apostando a la formación constante. Descubrí una gran pasión por el color, tuve el honor de ganar el <strong>L'Oréal Style & Colour Trophy</strong>, viaje que me llevó a cumplir otro gran sueño: <strong>representar a Coronel Pringles en París</strong>. Comencé a trabajar con marcas, a crear contenido y a compartir mi experiencia como capacitador.
+                        </p>
+                        <p>
+                            Cada etapa me enseñó algo distinto, pero todas me confirmaron lo mismo: <strong>lo más valioso no son los premios, sino las personas que confían en mí</strong> para acompañarlas en momentos que recordarán toda la vida.
+                        </p>
+                        <p>
+                            Hoy comienza un nuevo capítulo junto a Agustina.
+                        </p>
+                        <p>
+                            Este proyecto nació de una amistad, de la admiración por el trabajo del otro y de una forma compartida de entender la belleza. Creemos en la calidez, en la cercanía, en el respeto por la esencia de cada persona y en brindar una experiencia que vaya mucho más allá del peinado y el maquillaje.
+                        </p>
+                        <p>
+                            <strong>Nuestro sueño es llevar este concepto a todo el sur de la provincia de Buenos Aires</strong>, acompañando novias, quinceañeras, madrinas, invitadas y egresadas donde sea que estén.
+                        </p>
+                        <p class="text-soft-beige font-medium text-lg">
+                            "Porque los recuerdos más importantes empiezan mucho antes del evento. Y para nosotros, será un honor formar parte de esa historia."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GALERÍA 2 - 8 FOTOS DESPUÉS DE NICO ===== -->
+        <section class="py-12 md:py-16 bg-soft-beige/5 border-t border-warm-gray/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-dark-brown">
+                         <span class="text-warm-gray">Trabajos de Nicolás</span>
+                    </h2>
+                    <div class="divider-custom mt-3"></div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <!-- Foto 1 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/uno.jpeg" alt="Trabajo de peinado 1"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 2 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/dos.jpeg" alt="Trabajo de peinado 2"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 3 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/tres.jpeg" alt="Trabajo de maquillaje 1"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 4 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/cuatro.jpeg" alt="Trabajo de peinado 3"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 5 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/cinco.jpeg" alt="Trabajo de peinado 4"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 6 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/seis.jpeg" alt="Trabajo de maquillaje 2"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 7 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/siete.jpeg" alt="Trabajo de peinado 5"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 8 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/ocho.jpeg" alt="Trabajo de peinado 6"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIOS ===== -->
+        <section class="py-12 md:py-16 bg-soft-beige/20 border-t border-warm-gray/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-dark-brown">
+                        Lo que dicen <span class="text-warm-gray">nuestras clientas</span>
+                    </h2>
+                    <div class="divider-custom mt-3"></div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+                    <!-- Testimonio 1 -->
+                    <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg border border-warm-gray/20">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 rounded-full bg-soft-beige flex items-center justify-center text-xl font-bold text-dark-brown">
+                                MC
+                            </div>
+                            <div>
+                                <p class="font-bold text-dark-brown">María C.</p>
+                                <p class="text-xs text-warm-gray">Novia - 2025</p>
+                                <div class="flex text-soft-beige text-sm mt-1">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="text-dark-brown/80 text-base italic leading-relaxed">
+                            "El peinado para mi boda fue perfecto. Me sentí como una princesa. 
+                            ¡Gracias Nico & Agus por hacer de mi día algo aún más especial!"
+                        </p>
+                    </div>
+
+                    <!-- Testimonio 2 -->
+                    <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg border border-warm-gray/20">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 rounded-full bg-warm-gray flex items-center justify-center text-xl font-bold text-off-white">
+                                AR
+                            </div>
+                            <div>
+                                <p class="font-bold text-dark-brown">Ana R.</p>
+                                <p class="text-xs text-warm-gray">Gala - 2025</p>
+                                <div class="flex text-soft-beige text-sm mt-1">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="text-dark-brown/80 text-base italic leading-relaxed">
+                            "Increíble atención al detalle. Mi estilo de gala fue un éxito. 
+                            ¡Recomendado 100%! Se nota la pasión que le ponen a su trabajo."
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GALERÍA 3 - 8 FOTOS DESPUÉS DE TESTIMONIOS ===== -->
+        <section class="py-12 md:py-16 bg-soft-beige/5 border-t border-warm-gray/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-dark-brown">
+                        <span class="text-warm-gray">Nuestros Mejores Momentos</span>
+                    </h2>
+                    <div class="divider-custom mt-3"></div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <!-- Foto 1 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/nueve.jpeg" alt="Trabajo 1"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 2 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/diez.jpeg" alt="Trabajo 2"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 3 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/mexico.jpeg" alt="Trabajo 3"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 4 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/trece.jpeg" alt="Trabajo 4"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 5 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/catorce.jpeg" alt="Trabajo 5"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 6 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/quince.jpeg" alt="Trabajo 6"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 7 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/dieciseis.jpeg" alt="Trabajo 7"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Foto 8 -->
+                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
+                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
+                            <img src="../assets/diecisiete.jpeg" alt="Trabajo 8"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="bg-dark-brown text-off-white py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-sm text-off-white/70">
+                    © 2026 <span class="font-semibold text-off-white">Nico & Agus</span> —
+                    Hair & Makeup Artists
+                </p>
+                <p class="text-xs text-off-white/50 mt-1">
+                    Hecho con amor y dedicación para resaltar tu belleza en cada ocasión.
+                </p>
+                <div class="flex justify-center gap-6 mt-3 text-sm text-off-white/60">
+                    <a href="#" class="hover:text-soft-beige transition-custom">Instagram</a>
+                    <a href="#" class="hover:text-soft-beige transition-custom">Facebook</a>
+                    <a href="#" class="hover:text-soft-beige transition-custom">Pinterest</a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="../js/SobreNosotros.js"></script>
+</body>
+
+</html>
