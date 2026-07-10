@@ -1,7 +1,5 @@
-// ===== ANIMACIONES PARA SOBRE NOSOTROS =====
+// ===== MENÚ MÓVIL =====
 document.addEventListener('DOMContentLoaded', function() {
-
-    // ===== MENÚ MÓVIL =====
     const toggleBtn = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -18,54 +16,143 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ===== ANIMACIÓN DE CARDS AL HACER SCROLL =====
-    const photoCards = document.querySelectorAll('.photo-card');
-    
-    // Observador de intersección para animar al hacer scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 100);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Configurar estado inicial de las cards
-    photoCards.forEach((card) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-
-    // ===== EFECTO 3D EN LAS CARDS AL MOVER EL MOUSE =====
-    photoCards.forEach(card => {
-        card.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
-        });
+    // ===== FUNCIÓN PARA CREAR CARRUSEL =====
+    function createCarousel(slidesId, prevId, nextId, dotsId) {
+        const slides = document.getElementById(slidesId);
+        const prevBtn = document.getElementById(prevId);
+        const nextBtn = document.getElementById(nextId);
+        const dotsContainer = document.getElementById(dotsId);
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-        });
-    });
+        if (!slides) return;
+        
+        const slideItems = slides.querySelectorAll('.carousel-gallery-slide');
+        const totalSlides = slideItems.length;
+        let currentIndex = 0;
+        let autoPlayInterval;
+
+        // Crear dots
+        if (dotsContainer) {
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'carousel-gallery-dot' + (i === 0 ? ' active' : '');
+                dot.dataset.index = i;
+                dot.addEventListener('click', function() {
+                    goToSlide(parseInt(this.dataset.index));
+                    resetAutoPlay();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        const dots = dotsContainer ? dotsContainer.querySelectorAll('.carousel-gallery-dot') : [];
+
+        function goToSlide(index) {
+            if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (index >= totalSlides) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+            
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayInterval = setInterval(nextSlide, 3500);
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+        }
+
+        function resetAutoPlay() {
+            startAutoPlay();
+        }
+
+        // Event listeners para botones
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                resetAutoPlay();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                resetAutoPlay();
+            });
+        }
+
+        // Pausar al hacer hover
+        const container = slides.closest('.carousel-gallery-container');
+        if (container) {
+            container.addEventListener('mouseenter', stopAutoPlay);
+            container.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        // Touch support para móviles
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        if (container) {
+            container.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            container.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    resetAutoPlay();
+                }
+            }, { passive: true });
+        }
+
+        // Iniciar autoplay
+        startAutoPlay();
+
+        // Retornar funciones para control externo si es necesario
+        return {
+            goToSlide,
+            nextSlide,
+            prevSlide,
+            startAutoPlay,
+            stopAutoPlay
+        };
+    }
+
+    // ===== INICIALIZAR CARRUSELES =====
+    // Carrusel 1 - Trabajos de Agustina
+    createCarousel('carouselAgus', 'prevAgus', 'nextAgus', 'dotsAgus');
+
+    // Carrusel 2 - Trabajos de Nicolás
+    createCarousel('carouselNico', 'prevNico', 'nextNico', 'dotsNico');
+
+    // Carrusel 3 - Nuestros Mejores Momentos
+    createCarousel('carouselMejores', 'prevMejores', 'nextMejores', 'dotsMejores');
 
 });
