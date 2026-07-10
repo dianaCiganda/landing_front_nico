@@ -108,11 +108,9 @@
         <!-- ===== ENCABEZADO ===== -->
         <section class="py-12 md:py-16 border-b border-warm-gray/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <span class="inline-block bg-soft-beige/30 text-dark-brown px-4 py-1 rounded-full text-sm font-medium border border-warm-gray/30 mb-4">
-                     Nuestra Historia
-                </span>
+             
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-brown">
-                    De Pringles <span class="text-warm-gray">al mundo</span>
+                    Nuestra<span class="text-warm-gray">Historia</span>
                 </h1>
                 <div class="divider-custom mt-4"></div>
                 <p class="text-dark-brown/60 text-sm md:text-base mt-4 max-w-2xl mx-auto">
@@ -127,7 +125,7 @@
                 <div class="bg-white rounded-3xl shadow-lg p-8 md:p-12 border border-warm-gray/20">
                     <div class="flex items-center gap-4 mb-6">
                         <div>
-                            <h2 class="text-2xl font-bold text-dark-brown">Agustina</h2>
+                            <h2 class="text-2xl font-bold text-dark-brown">Agustina Núñez</h2>
                             <p class="text-sm text-warm-gray">Makeup Artist</p>
                         </div>
                     </div>
@@ -161,80 +159,34 @@
             </div>
         </section>
 
-        <!-- ===== GALERÍA 1 - 8 FOTOS DESPUÉS DE AGUS ===== -->
+        <!-- ===== CARRUSEL 1 - TRABAJOS DE AGUS (CORREGIDO) ===== -->
         <section class="py-12 md:py-16 bg-soft-beige/5 border-t border-warm-gray/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
-                    <h2 class="text-2xl md:text-3xl font-bold text-dark-brown">
-                     <span class="text-warm-gray">Trabajos de Agustina</span>
-                    </h2>
-                    <div class="divider-custom mt-3"></div>
-                </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                    <!-- Foto 1 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/maquillaje.jpeg" alt="Trabajo de maquillaje 1"
-                                class="w-full h-full object-cover" />
+                <div class="carousel-gallery-container">
+                    <div class="carousel-gallery-slides" id="carouselAgus">
+                        <!-- Slide 2 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/agus-maquillaje/2.jpeg" alt="Trabajo de maquillaje 2" />
                         </div>
-                    </div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/agus-maquillaje/3.jpeg" alt="Trabajo de maquillaje 3" />
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/agus-maquillaje/4.jpeg" alt="Trabajo de maquillaje 4" />
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/agus-maquillaje/5.jpeg" alt="Trabajo de maquillaje 5" />
+                        </div>
+                    </div> <!-- ← ESTE ES EL CIERRE QUE FALTABA -->
 
-                    <!-- Foto 2 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/peinado.jpeg" alt="Trabajo de peinado 1"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
+                    <button class="carousel-gallery-btn prev" id="prevAgus">‹</button>
+                    <button class="carousel-gallery-btn next" id="nextAgus">›</button>
 
-                    <!-- Foto 3 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/peinado2.jpeg" alt="Trabajo de peinado 2"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 4 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/maquillaje.jpeg" alt="Trabajo de maquillaje 2"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 5 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/peinado.jpeg" alt="Trabajo de peinado 3"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 6 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/peinado2.jpeg" alt="Trabajo de peinado 4"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 7 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/maquillaje.jpeg" alt="Trabajo de maquillaje 3"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 8 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/peinado.jpeg" alt="Trabajo de peinado 5"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
+                    <div class="carousel-gallery-dots" id="dotsAgus"></div>
                 </div>
             </div>
         </section>
@@ -245,7 +197,7 @@
                 <div class="bg-white rounded-3xl shadow-lg p-8 md:p-12 border border-warm-gray/20">
                     <div class="flex items-center gap-4 mb-6">
                         <div>
-                            <h2 class="text-2xl font-bold text-dark-brown">Nicolás Ciganda</h2>
+                            <h2 class="text-2xl font-bold text-dark-brown">Nico Ciganda</h2>
                             <p class="text-sm text-warm-gray">Hair Stylist</p>
                         </div>
                     </div>
@@ -288,80 +240,49 @@
             </div>
         </section>
 
-        <!-- ===== GALERÍA 2 - 8 FOTOS DESPUÉS DE NICO ===== -->
+        <!-- ===== CARRUSEL 2 - TRABAJOS DE NICO ===== -->
         <section class="py-12 md:py-16 bg-soft-beige/5 border-t border-warm-gray/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
-                    <h2 class="text-2xl md:text-3xl font-bold text-dark-brown">
-                         <span class="text-warm-gray">Trabajos de Nicolás</span>
-                    </h2>
-                    <div class="divider-custom mt-3"></div>
-                </div>
-
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                    <!-- Foto 1 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/uno.jpeg" alt="Trabajo de peinado 1"
-                                class="w-full h-full object-cover" />
+                <div class="carousel-gallery-container">
+                    <div class="carousel-gallery-slides" id="carouselNico">
+                        <!-- Slide 1 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/producciones/a.jpeg" alt="Trabajo de peinado 1" />
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/dos.jpeg" alt="Trabajo de peinado 2" />
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/producciones/ad.jpeg" alt="Trabajo de maquillaje 1" />
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/cuatro.jpeg" alt="Trabajo de peinado 3" />
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/producciones/ac.jpeg" alt="Trabajo de peinado 4" />
+                        </div>
+                        <!-- Slide 6 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/seis.jpeg" alt="Trabajo de maquillaje 2" />
+                        </div>
+                        <!-- Slide 7 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/producciones/ae.jpeg" alt="Trabajo de peinado 5" />
+                        </div>
+                        <!-- Slide 8 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/ocho.jpeg" alt="Trabajo de peinado 6" />
                         </div>
                     </div>
 
-                    <!-- Foto 2 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/dos.jpeg" alt="Trabajo de peinado 2"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
+                    <button class="carousel-gallery-btn prev" id="prevNico">‹</button>
+                    <button class="carousel-gallery-btn next" id="nextNico">›</button>
 
-                    <!-- Foto 3 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/tres.jpeg" alt="Trabajo de maquillaje 1"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 4 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/cuatro.jpeg" alt="Trabajo de peinado 3"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 5 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/cinco.jpeg" alt="Trabajo de peinado 4"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 6 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/seis.jpeg" alt="Trabajo de maquillaje 2"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 7 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/siete.jpeg" alt="Trabajo de peinado 5"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 8 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/ocho.jpeg" alt="Trabajo de peinado 6"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
+                    <div class="carousel-gallery-dots" id="dotsNico"></div>
                 </div>
             </div>
         </section>
@@ -377,7 +298,6 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
-                    <!-- Testimonio 1 -->
                     <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg border border-warm-gray/20">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-14 h-14 rounded-full bg-soft-beige flex items-center justify-center text-xl font-bold text-dark-brown">
@@ -395,7 +315,6 @@
                         </p>
                     </div>
 
-                    <!-- Testimonio 2 -->
                     <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg border border-warm-gray/20">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-14 h-14 rounded-full bg-warm-gray flex items-center justify-center text-xl font-bold text-off-white">
@@ -417,7 +336,7 @@
             </div>
         </section>
 
-        <!-- ===== GALERÍA 3 - 8 FOTOS DESPUÉS DE TESTIMONIOS ===== -->
+        <!-- ===== CARRUSEL 3 - NUESTROS MEJORES MOMENTOS ===== -->
         <section class="py-12 md:py-16 bg-soft-beige/5 border-t border-warm-gray/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-10">
@@ -427,70 +346,46 @@
                     <div class="divider-custom mt-3"></div>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                    <!-- Foto 1 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/nueve.jpeg" alt="Trabajo 1"
-                                class="w-full h-full object-cover" />
+                <div class="carousel-gallery-container">
+                    <div class="carousel-gallery-slides" id="carouselMejores">
+                        <!-- Slide 1 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/nueve.jpeg" alt="Momento 1" />
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/diez.jpeg" alt="Momento 2" />
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/mexico.jpeg" alt="Momento 3" />
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/trece.jpeg" alt="Momento 4" />
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/catorce.jpeg" alt="Momento 5" />
+                        </div>
+                        <!-- Slide 6 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/quince.jpeg" alt="Momento 6" />
+                        </div>
+                        <!-- Slide 7 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/dieciseis.jpeg" alt="Momento 7" />
+                        </div>
+                        <!-- Slide 8 -->
+                        <div class="carousel-gallery-slide">
+                            <img src="../assets/diecisiete.jpeg" alt="Momento 8" />
                         </div>
                     </div>
 
-                    <!-- Foto 2 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/diez.jpeg" alt="Trabajo 2"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
+                    <button class="carousel-gallery-btn prev" id="prevMejores">‹</button>
+                    <button class="carousel-gallery-btn next" id="nextMejores">›</button>
 
-                    <!-- Foto 3 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/mexico.jpeg" alt="Trabajo 3"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 4 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/trece.jpeg" alt="Trabajo 4"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 5 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/catorce.jpeg" alt="Trabajo 5"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 6 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/quince.jpeg" alt="Trabajo 6"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 7 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/dieciseis.jpeg" alt="Trabajo 7"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
-
-                    <!-- Foto 8 -->
-                    <div class="photo-card rounded-2xl bg-white shadow-md border border-warm-gray/20">
-                        <div class="aspect-square overflow-hidden rounded-t-2xl bg-soft-beige/30">
-                            <img src="../assets/diecisiete.jpeg" alt="Trabajo 8"
-                                class="w-full h-full object-cover" />
-                        </div>
-                    </div>
+                    <div class="carousel-gallery-dots" id="dotsMejores"></div>
                 </div>
             </div>
         </section>
