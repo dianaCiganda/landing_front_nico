@@ -4,10 +4,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============ CSP CORREGIDO ============ -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        img-src 'self' data: https: http:;
+        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://kit.fontawesome.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        connect-src 'self';
+    ">
+
     <title>Nico & Agus - Hair & Makeup Artists</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/output.css" />
     <link rel="stylesheet" href="css/estilos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Font Awesome 6 (gratuito) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
@@ -33,29 +47,36 @@
                         class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
                         Sobre Nosotros
                     </a>
-                    <a href="#"
+                    <a href="pages/Galeria.html"
                         class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
-                        Galería
+                        Galeria
                     </a>
-                    <a href="#"
+                    <a href="pages/PreguntasFrecuentes.html"
                         class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
                         Preguntas Frecuentes
                     </a>
-                    <a href="#"
+                    <a href="pages/Contacto.html"
                         class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
                         Contacto
                     </a>
+                    <!-- ===== ENLACE AL PANEL DE ADMIN ===== -->
+                    <a href="admin/"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        <i class="fas fa-crown"></i> Admin
+                    </a>
                 </div>
 
-                <!-- Botón CTA -->
+                <!-- Boton CTA -->
                 <div class="hidden md:block">
-                    <button
-                        class="bg-dark-brown text-off-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom shadow-md hover:shadow-lg">
-                        Reservar Cita
-                    </button>
+                    <a href="pages/ReservaForm.html">
+                        <button
+                            class="bg-dark-brown text-off-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom shadow-md hover:shadow-lg">
+                            Reservar Cita
+                        </button>
+                    </a>
                 </div>
 
-                <!-- Menú Hamburguesa -->
+                <!-- Menu Hamburguesa -->
                 <div class="md:hidden">
                     <button id="menu-toggle"
                         class="text-dark-brown hover:text-warm-gray focus:outline-none p-2 rounded-lg hover:bg-warm-gray/10 transition-custom">
@@ -69,7 +90,7 @@
             </div>
         </div>
 
-        <!-- Menú móvil -->
+        <!-- Menu movil -->
         <div id="mobile-menu" class="md:hidden bg-off-white border-t border-warm-gray/30">
             <div class="px-4 pt-3 pb-5 space-y-1.5">
                 <a href="index.html"
@@ -80,23 +101,30 @@
                     class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
                     Sobre Nosotros
                 </a>
-                <a href="#"
+                <a href="pages/Galeria.html"
                     class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
-                    Galería
+                    Galeria
                 </a>
-                <a href="#"
+                <a href="pages/PreguntasFrecuentes.html"
                     class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
                     Preguntas Frecuentes
                 </a>
-                <a href="#"
+                <a href="pages/Contacto.html"
                     class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
                     Contacto
                 </a>
+                <!-- ===== ENLACE AL PANEL DE ADMIN (MÓVIL) - CORREGIDO ===== -->
+                <a href="admin/"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    <i class="fas fa-crown"></i> Admin
+                </a>
                 <div class="pt-3">
-                    <button
-                        class="w-full bg-dark-brown text-off-white px-6 py-3 rounded-full text-base font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom">
-                        Reservar Cita
-                    </button>
+                    <a href="pages/ReservaForm.html">
+                        <button
+                            class="w-full bg-dark-brown text-off-white px-6 py-3 rounded-full text-base font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom">
+                            Reservar Cita
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -106,37 +134,23 @@
     <section class="pt-20">
         <div class="carousel-wrapper">
             <div class="carousel-container">
-                
+
                 <!-- Slides -->
                 <div class="carousel-slides" id="carouselSlides">
-                    <!-- Slide 1 - Maquillaje -->
                     <div class="carousel-slide">
-                        <img src="./assets/producciones/aa.jpeg"
-                            alt="Maquillaje profesional para eventos" />
+                        <img src="./assets/inicio/inicio.png" alt="Maquillaje profesional para eventos" />
                     </div>
-                    
-                    <!-- Slide 2 - Peinado -->
                     <div class="carousel-slide">
-                        <img src="./assets/tres.jpeg"
-                            alt="Peinado profesional para eventos" />
+                        <img src="./assets/diecisiete.jpeg" alt="Peinado profesional para eventos" />
                     </div>
-                    
-                    <!-- Slide 3 - Estilo Gala -->
                     <div class="carousel-slide">
-                        <img src="./assets/diez.jpeg"
-                            alt="Estilo gala y peinado elegante" />
+                        <img src="./assets/foto-inicio.webp" alt="Estilo gala y peinado elegante" />
                     </div>
                 </div>
 
-                <!-- Botones de navegación -->
-                <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">
-                    ‹
-                </button>
-                <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">
-                    ›
-                </button>
+                <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">‹</button>
+                <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">›</button>
 
-                <!-- Dots/indicadores -->
                 <div class="carousel-dots" id="carouselDots">
                     <span class="carousel-dot active" data-index="0"></span>
                     <span class="carousel-dot" data-index="1"></span>
@@ -153,29 +167,31 @@
         <section class="relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-
-                    <!-- Texto -->
                     <div class="space-y-6">
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                            <span class="text-dark-brown">Nico & Agus | Hair • Makeup</span>
+                            <span class="text-dark-brown">Nico & Agus | Hair Makeup</span>
                             <span class="text-warm-gray block">Beauty Experience</span>
                         </h1>
                         <p class="text-base md:text-lg text-dark-brown/70 leading-relaxed max-w-lg">
-                            Entendemos que cada evento es único.
+                            Entendemos que cada evento es unico.
                             Por eso, creamos peinados y maquillajes diseñados especialmente para vos,
-                            realzando tu belleza y personalidad en cada ocasión.
+                            realzando tu belleza y personalidad en cada ocasion.
                         </p>
                         <div class="flex flex-wrap gap-4 pt-2">
-                            <button
-                                class="bg-dark-brown text-off-white px-8 py-3.5 rounded-full font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom shadow-lg hover:shadow-xl">
-                                Reservar Cita
-                            </button>
-                            <button
+                            <a href="pages/ReservaForm.html">
+                                <button
+                                    class="bg-dark-brown text-off-white px-8 py-3.5 rounded-full font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom shadow-lg hover:shadow-xl">
+                                    Reservar Cita
+                                </button>
+                            </a>
+                            <button id="btnVerGaleria"
                                 class="bg-soft-beige text-dark-brown px-8 py-3.5 rounded-full font-semibold hover:bg-warm-gray transition-custom shadow-md hover:shadow-lg">
-                                Ver Galería
+                                Ver Galeria
                             </button>
                         </div>
                     </div>
+                </div>
+            </div>
         </section>
 
         <!-- SERVICIOS -->
@@ -190,88 +206,87 @@
                         Peinados y maquillajes para <span class="text-warm-gray">Eventos Especiales</span>
                     </h2>
                     <p class="text-dark-brown/70 text-base md:text-lg">
-                        Nuestros servicios son el comienzo de un recuerdo. Viví la experiencia antes del evento. Cada
-                        detalle importa. Los momentos importantes merecen ser disfrutados.
+                        Nuestros servicios son el comienzo de un recuerdo. Vivi la experiencia antes del evento.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- TESTIMONIOS -->
-        <section class="py-16 bg-soft-beige/20 border-t border-warm-gray/20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
+        <!-- ============ SECCIÓN DE COMENTARIOS ============ -->
+        <section class="py-16 bg-off-white border-t border-warm-gray/20">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-8">
                     <h2 class="text-3xl font-bold text-dark-brown">
-                        Lo que dicen <span class="text-warm-gray">nuestras clientas</span>
+                        💬 <span class="text-warm-gray">Comentarios</span>
                     </h2>
+                    <p class="text-dark-brown/60 text-sm mt-2">
+                        Deja tu opinión. ¡Gracias por compartir tu experiencia!
+                    </p>
+                    <p class="text-dark-brown/40 text-xs mt-1">
+                        <i class="fas fa-shield-alt"></i> Los comentarios son moderados
+                    </p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-off-white p-6 rounded-2xl shadow-md border border-warm-gray/20">
-                        <p class="text-dark-brown/80 text-sm italic">
-                            "El peinado para mi boda fue perfecto. Me sentí como una princesa.
-                            ¡Gracias Nico & Agus!"
-                        </p>
-                        <div class="mt-4 flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-full bg-soft-beige flex items-center justify-center text-dark-brown font-bold">
-                                MC
-                            </div>
-                            <div>
-                                <p class="text-sm font-semibold text-dark-brown">María C.</p>
-                                <p class="text-xs text-warm-gray">Novia - 2025</p>
-                            </div>
+
+                <!-- FORMULARIO -->
+                <form id="comentarioForm" class="bg-white p-6 rounded-2xl shadow-md border border-warm-gray/20">
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium text-dark-brown mb-1">Nombre</label>
+                            <input type="text" id="nombre"
+                                class="w-full px-4 py-2.5 border border-warm-gray/30 rounded-lg focus:ring-2 focus:ring-warm-gray/50 focus:border-warm-gray outline-none transition"
+                                placeholder="Tu nombre" required maxlength="50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-dark-brown mb-1">Apellido</label>
+                            <input type="text" id="apellido"
+                                class="w-full px-4 py-2.5 border border-warm-gray/30 rounded-lg focus:ring-2 focus:ring-warm-gray/50 focus:border-warm-gray outline-none transition"
+                                placeholder="Tu apellido" required maxlength="50">
                         </div>
                     </div>
-                    <div class="bg-off-white p-6 rounded-2xl shadow-md border border-warm-gray/20">
-                        <p class="text-dark-brown/80 text-sm italic">
-                            "Increíble atención al detalle. Mi estilo de gala fue un éxito.
-                            ¡Recomendado 100%!"
-                        </p>
-                        <div class="mt-4 flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-full bg-warm-gray flex items-center justify-center text-off-white font-bold">
-                                AR
-                            </div>
-                            <div>
-                                <p class="text-sm font-semibold text-dark-brown">Ana R.</p>
-                                <p class="text-xs text-warm-gray">Gala - 2025</p>
-                            </div>
-                        </div>
+
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-dark-brown mb-1">Comentario</label>
+                        <textarea id="comentario"
+                            class="w-full px-4 py-2.5 border border-warm-gray/30 rounded-lg focus:ring-2 focus:ring-warm-gray/50 focus:border-warm-gray outline-none transition resize-none"
+                            rows="4" placeholder="Escribe tu comentario..." required maxlength="500"></textarea>
                     </div>
-                    <div class="bg-off-white p-6 rounded-2xl shadow-md border border-warm-gray/20">
-                        <p class="text-dark-brown/80 text-sm italic">
-                            "El mejor salón de peinados para eventos. Siempre salgo feliz
-                            y con un look espectacular."
-                        </p>
-                        <div class="mt-4 flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-full bg-dark-brown flex items-center justify-center text-off-white font-bold">
-                                LG
-                            </div>
-                            <div>
-                                <p class="text-sm font-semibold text-dark-brown">Laura G.</p>
-                                <p class="text-xs text-warm-gray">Graduación - 2025</p>
-                            </div>
-                        </div>
-                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-dark-brown text-off-white py-3 rounded-lg font-semibold hover:bg-warm-gray hover:text-dark-brown transition-all shadow-md hover:shadow-lg">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Publicar Comentario
+                    </button>
+                </form>
+
+                <!-- LISTA DE COMENTARIOS -->
+                <div class="mt-8 space-y-4" id="listaComentarios">
+                    <!-- Se carga dinámicamente -->
                 </div>
+
             </div>
         </section>
 
-        <!-- FOOTER -->
+        <!-- ============ FOOTER ============ -->
         <footer class="bg-dark-brown text-off-white py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <p class="text-sm text-off-white/70">
-                    © 2026 <span class="font-semibold text-off-white">Nico & Agus</span> —
-                    Hair & Makeup Artists
+                    © 2026 <span class="font-semibold text-off-white">Nico & Agus</span> Hair & Makeup Artists
                 </p>
-                <p class="text-xs text-off-white/50 mt-1">
-                    Hecho con amor y dedicación para resaltar tu belleza en cada ocasión.
-                </p>
-                <div class="flex justify-center gap-6 mt-3 text-sm text-off-white/60">
-                    <a href="#" class="hover:text-soft-beige transition-custom">Instagram</a>
-                    <a href="#" class="hover:text-soft-beige transition-custom">Facebook</a>
-                    <a href="#" class="hover:text-soft-beige transition-custom">Pinterest</a>
+                <p class="text-xs text-off-white/50 mt-1">Nuestras Redes Sociales</p>
+
+                <div class="flex justify-center gap-8 mt-4 text-2xl">
+                    <a href="https://wa.me/5492922452205" target="_blank" rel="noopener noreferrer"
+                        class="text-off-white/80 hover:text-white transition-custom hover:scale-110 transform duration-200"
+                        aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/nico.ciganda?igsh=MWdweHU2NjBreXp1Mg==" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-off-white/80 hover:text-white transition-custom hover:scale-110 transform duration-200"
+                        aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         </footer>

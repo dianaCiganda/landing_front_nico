@@ -1,0 +1,753 @@
+/* ============================================
+   ADMIN.CSS - ESTILOS DEL PANEL DE ADMINISTRACIÓN
+   ============================================ */
+
+/* ===== RESET Y BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f0eb;
+    color: #1B1714;
+    min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+.admin-header {
+    background: linear-gradient(135deg, #1B1714, #3d2c1f);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(27, 23, 20, 0.3);
+}
+
+.admin-header h1 {
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-header h1 span {
+    color: #B9B4A9;
+    font-weight: 300;
+}
+
+.admin-header .fecha {
+    font-size: 14px;
+    color: #B9B4A9;
+}
+
+.admin-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ===== BOTÓN DE SALIDA ===== */
+.btn-logout {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== ESTADÍSTICAS ===== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(180, 160, 140, 0.15);
+    transition: all 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card .icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-card .numero {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1B1714;
+}
+
+.stat-card .label {
+    font-size: 14px;
+    color: #8a7a6a;
+    margin-top: 4px;
+}
+
+.stat-card.pendiente .icon {
+    color: #f59e0b;
+}
+.stat-card.aprobado .icon {
+    color: #10b981;
+}
+.stat-card.total .icon {
+    color: #3b82f6;
+}
+.stat-card.rechazado .icon {
+    color: #ef4444;
+}
+
+/* ===== FILTROS ===== */
+.filtros {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filtro-btn {
+    padding: 10px 24px;
+    border: 2px solid rgba(180, 160, 140, 0.25);
+    border-radius: 50px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+    font-size: 14px;
+    color: #3d2c1f;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filtro-btn:hover {
+    border-color: #1B1714;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.filtro-btn.active {
+    border-color: #1B1714;
+    background: #1B1714;
+    color: white;
+}
+
+.filtro-btn .badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0 8px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.filtro-btn.active .badge {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== COMENTARIOS ===== */
+.comentario-item {
+    background: white;
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border-left: 4px solid #B9B4A9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s;
+    animation: fadeInUp 0.3s ease;
+}
+
+.comentario-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.comentario-item.pendiente {
+    border-left-color: #f59e0b;
+    background: #fffbeb;
+}
+
+.comentario-item.aprobado {
+    border-left-color: #10b981;
+    background: #f0fdf4;
+}
+
+.comentario-item.rechazado {
+    border-left-color: #ef4444;
+    background: #fef2f2;
+}
+
+.comentario-item .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.comentario-item .nombre {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1B1714;
+}
+
+.comentario-item .nombre .id-comentario {
+    font-weight: 400;
+    color: #8a7a6a;
+    font-size: 12px;
+}
+
+.comentario-item .fecha {
+    font-size: 13px;
+    color: #8a7a6a;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.comentario-item .texto {
+    color: #3d2c1f;
+    line-height: 1.6;
+    margin: 8px 0 12px 0;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    word-break: break-word;
+}
+
+.comentario-item .acciones {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ===== BADGES ===== */
+.badge {
+    display: inline-block;
+    padding: 3px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-pendiente {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-aprobado {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.badge-rechazado {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* ===== BOTONES ===== */
+.btn {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-aprobar {
+    background: #10b981;
+    color: white;
+}
+
+.btn-aprobar:hover {
+    background: #059669;
+}
+
+.btn-rechazar {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-rechazar:hover {
+    background: #dc2626;
+}
+
+.btn-eliminar {
+    background: #6b7280;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background: #4b5563;
+}
+
+.btn-editar {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-editar:hover {
+    background: #2563eb;
+}
+
+.btn-responder {
+    background: #8b5cf6;
+    color: white;
+}
+
+.btn-responder:hover {
+    background: #7c3aed;
+}
+
+/* ===== ESTADO VACÍO ===== */
+.empty {
+    text-align: center;
+    padding: 40px;
+    color: #8a7a6a;
+    background: white;
+    border-radius: 12px;
+    border: 2px dashed rgba(180, 160, 140, 0.2);
+}
+
+.empty .icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.empty h3 {
+    font-size: 18px;
+    color: #1B1714;
+    margin-bottom: 5px;
+}
+
+/* ===== LOGIN ===== */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1B1714, #3d2c1f);
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeInUp 0.5s ease;
+}
+
+.login-box .logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-box .logo i {
+    font-size: 48px;
+    color: #1B1714;
+    background: #f5f0eb;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 8px;
+    color: #1B1714;
+}
+
+.login-box .subtitle {
+    text-align: center;
+    color: #8a7a6a;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.login-box .form-group {
+    margin-bottom: 15px;
+}
+
+.login-box .form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: #3d2c1f;
+    margin-bottom: 5px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid rgba(180, 160, 140, 0.25);
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: #fafbfc;
+}
+
+.login-box input:focus {
+    border-color: #1B1714;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(27, 23, 20, 0.05);
+    background: white;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #1B1714;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.login-box button:hover {
+    background: #3d2c1f;
+    transform: scale(1.02);
+}
+
+.login-box .error {
+    color: #ef4444;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+    font-size: 14px;
+}
+
+/* ===== TOAST / NOTIFICACIONES ===== */
+.toast-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    padding: 14px 22px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    animation: slideInRight 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 280px;
+}
+
+.toast.success {
+    background: #10b981;
+}
+.toast.error {
+    background: #ef4444;
+}
+.toast.info {
+    background: #3b82f6;
+}
+
+.toast .close-toast {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: auto;
+    opacity: 0.7;
+}
+
+.toast .close-toast:hover {
+    opacity: 1;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== SCROLLBAR PERSONALIZADA ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5f0eb;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #B9B4A9;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8a7a6a;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .admin-header {
+        padding: 15px 20px;
+    }
+
+    .admin-header h1 {
+        font-size: 18px;
+    }
+
+    .admin-header .fecha {
+        font-size: 12px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-card .numero {
+        font-size: 24px;
+    }
+
+    .comentario-item {
+        padding: 14px 16px;
+    }
+
+    .comentario-item .header {
+        flex-direction: column;
+    }
+
+    .filtro-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .login-box {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-header {
+        padding: 12px 15px;
+    }
+
+    .admin-header h1 {
+        font-size: 16px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 12px;
+    }
+
+    .stat-card .numero {
+        font-size: 20px;
+    }
+
+    .stat-card .label {
+        font-size: 11px;
+    }
+
+    .filtro-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .comentario-item {
+        padding: 12px 14px;
+    }
+
+    .comentario-item .nombre {
+        font-size: 14px;
+    }
+
+    .comentario-item .texto {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .btn {
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+
+    .login-box {
+        padding: 24px 16px;
+    }
+}
+
+/* ===== DARK MODE (OPCIONAL) ===== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #e5e5e5;
+    }
+
+    .stat-card {
+        background: #2a2a2a;
+        border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .stat-card .numero {
+        color: #e5e5e5;
+    }
+
+    .comentario-item {
+        background: #2a2a2a;
+    }
+
+    .comentario-item.pendiente {
+        background: #2a2418;
+    }
+
+    .comentario-item.aprobado {
+        background: #182a20;
+    }
+
+    .comentario-item .nombre {
+        color: #e5e5e5;
+    }
+
+    .comentario-item .texto {
+        background: rgba(255, 255, 255, 0.05);
+        color: #d5d5d5;
+    }
+
+    .comentario-item .fecha {
+        color: #8a7a6a;
+    }
+
+    .empty {
+        background: #2a2a2a;
+        color: #8a7a6a;
+    }
+
+    .empty h3 {
+        color: #e5e5e5;
+    }
+
+    .login-box {
+        background: #2a2a2a;
+    }
+
+    .login-box h2 {
+        color: #e5e5e5;
+    }
+
+    .login-box input {
+        background: #1a1a1a;
+        border-color: rgba(255, 255, 255, 0.1);
+        color: #e5e5e5;
+    }
+
+    .login-box input:focus {
+        border-color: #B9B4A9;
+        background: #2a2a2a;
+    }
+
+    .filtro-btn {
+        background: #2a2a2a;
+        color: #e5e5e5;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .filtro-btn.active {
+        background: #1B1714;
+        border-color: #1B1714;
+        color: white;
+    }
+}

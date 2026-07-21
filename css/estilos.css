@@ -1,27 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* ===== PALETA DE COLORES ===== */
 .bg-dark-brown { background-color: #1B1714; }
 .bg-warm-gray { background-color: #B9B4A9; }
-.bg-soft-beige { background-color: #DOCDC4; }
+.bg-soft-beige { background-color: #D0CDC4; }
 .bg-off-white { background-color: #EDEDE8; }
 
 .text-dark-brown { color: #1B1714; }
 .text-warm-gray { color: #B9B4A9; }
-.text-soft-beige { color: #DOCDC4; }
+.text-soft-beige { color: #D0CDC4; }
 .text-off-white { color: #EDEDE8; }
 
 .border-dark-brown { border-color: #1B1714; }
 .border-warm-gray { border-color: #B9B4A9; }
-.border-soft-beige { border-color: #DOCDC4; }
+.border-soft-beige { border-color: #D0CDC4; }
 
 .hover\:bg-dark-brown:hover { background-color: #1B1714; }
 .hover\:bg-warm-gray:hover { background-color: #B9B4A9; }
-.hover\:bg-soft-beige:hover { background-color: #DOCDC4; }
+.hover\:bg-soft-beige:hover { background-color: #D0CDC4; }
 .hover\:text-off-white:hover { color: #EDEDE8; }
 .hover\:text-dark-brown:hover { color: #1B1714; }
-.hover\:text-soft-beige:hover { color: #DOCDC4; }
+.hover\:text-soft-beige:hover { color: #D0CDC4; }
 .hover\:border-warm-gray:hover { border-color: #B9B4A9; }
 
 .shadow-custom { box-shadow: 0 4px 20px rgba(27, 23, 20, 0.12); }
@@ -83,7 +84,7 @@ html {
     max-height: 500px;
 }
 
-/* ===== CARRUSEL - TAMAÑO OPTIMIZADO ===== */
+/* ===== CARRUSEL ===== */
 .carousel-wrapper {
     width: 75%;
     margin: 0 auto;
@@ -182,7 +183,6 @@ html {
     background: #EDEDE8;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
     .carousel-wrapper {
         width: 85%;
@@ -243,4 +243,97 @@ html {
         width: 8px;
         height: 8px;
     }
+}
+
+/* ============================================
+   COMENTARIOS
+   ============================================ */
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.comentario-item {
+    animation: fadeInUp 0.4s ease;
+}
+
+/* Efecto hover en comentarios */
+#listaComentarios .bg-white {
+    transition: all 0.3s ease;
+}
+
+#listaComentarios .bg-white:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Scrollbar personalizada */
+#listaComentarios {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+#listaComentarios::-webkit-scrollbar {
+    width: 4px;
+}
+
+#listaComentarios::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#listaComentarios::-webkit-scrollbar-thumb {
+    background: #B9B4A9;
+    border-radius: 10px;
+}
+
+#listaComentarios::-webkit-scrollbar-thumb:hover {
+    background: #8a7a6a;
+}
+
+/* Botones de acción en comentarios */
+.btn-aprobar-comentario {
+    background: #10b981;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-aprobar-comentario:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+.btn-rechazar-comentario {
+    background: #ef4444;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-rechazar-comentario:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+#mobile-menu {
+    display: none;
 }

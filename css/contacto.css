@@ -1,0 +1,177 @@
+.reserva-section {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8f5f0 0%, #e8e0d8 100%);
+    padding: 2rem 1rem;
+    margin-top: 80px;
+}
+
+.reserva-card {
+    background: white;
+    border-radius: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    max-width: 560px;
+    width: 100%;
+    padding: 3rem 2.5rem;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(180, 160, 140, 0.15);
+}
+
+.reserva-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+}
+
+.reserva-header h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #4a3528;
+    margin-bottom: 0.5rem;
+}
+
+.reserva-header p {
+    color: #8a7a6a;
+    font-size: 1rem;
+}
+
+/* ============================================================
+   BOTÓN WHATSAPP - NEGRO CON HOVER GRIS
+   ============================================================ */
+
+.btn-whatsapp {
+    background: #1a1a1a; /* Negro */
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 380px;
+    text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+    background: #6b6b6b; /* Gris */
+    transform: scale(1.03);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.btn-whatsapp i {
+    font-size: 1.75rem;
+}
+
+/* ============================================================
+   LOGO - ESTILO NEGRO
+   ============================================================ */
+
+.logo-container-reserva {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.logo-container-reserva img {
+    width: 120px;
+    height: auto;
+    opacity: 0.9;
+    filter: brightness(0) saturate(100%); /* Convierte a negro */
+    transition: all 0.3s ease;
+}
+
+.logo-container-reserva img:hover {
+    filter: brightness(0.4) saturate(0%); /* Gris oscuro */
+    opacity: 1;
+}
+
+/* ============================================================
+   FEATURES / CARACTERÍSTICAS
+   ============================================================ */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0 1.5rem;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    border-radius: 1rem;
+    background: #f8f5f0;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: #efe8e0;
+    transform: translateY(-2px);
+}
+
+.feature-item i {
+    font-size: 1.5rem;
+    color: #1a1a1a; /* Negro */
+    display: block;
+    margin-bottom: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover i {
+    color: #6b6b6b; /* Gris */
+}
+
+.feature-item span {
+    font-size: 0.7rem;
+    color: #5a4a3a;
+    font-weight: 500;
+    display: block;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 640px) {
+    .reserva-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .reserva-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .feature-item {
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .feature-item i {
+        font-size: 1.25rem;
+    }
+    
+    .feature-item span {
+        font-size: 0.6rem;
+    }
+    
+    .btn-whatsapp {
+        font-size: 1rem;
+        padding: 0.875rem 1.5rem;
+    }
+    
+    .logo-container-reserva img {
+        width: 90px;
+    }
+}
