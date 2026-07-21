@@ -20,231 +20,6 @@
     <link rel="stylesheet" href="../css/SobreNosotros.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <style>
-        /* ============================================================
-           SOBRE NOSOTROS - ESTILOS PARA TEXTO OSCURO
-           ============================================================ */
-        
-        .story-text p {
-            color: #2d1f14 !important;
-            font-weight: 400;
-            line-height: 1.8;
-            margin-bottom: 1.25rem;
-        }
-        
-        .story-text strong {
-            color: #3e2d23;
-            font-weight: 700;
-        }
-        
-        /* ===== TESTIMONIO / CITA DESTACADA ===== */
-        .story-text .testimonio {
-            color: #2d1f14 !important;
-            font-style: italic;
-            padding: 1.5rem 2rem;
-            background: #f8f5f0;
-            border-radius: 12px;
-            border-left: 4px solid #c4a882;
-            margin-top: 1.5rem;
-            font-weight: 500;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-        
-        .story-text .testimonio strong {
-            color: #3e2d23;
-        }
-        
-        .story-text .testimonio::before {
-            content: '"';
-            font-size: 2rem;
-            color: #c4a882;
-            margin-right: 0.25rem;
-        }
-        
-        .story-text .testimonio::after {
-            content: '"';
-            font-size: 2rem;
-            color: #c4a882;
-            margin-left: 0.25rem;
-        }
-        
-        /* ===== DIVIDER ===== */
-        .divider-custom {
-            width: 60px;
-            height: 3px;
-            background: #8b7a6b;
-            margin: 0 auto;
-            border-radius: 4px;
-        }
-        
-        /* ===== CARRUSEL ===== */
-        .carousel-gallery-container {
-            position: relative;
-            width: 70%;
-            max-width: 900px;
-            margin: 0 auto 40px;
-            border-radius: 16px;
-            overflow: hidden;
-            background: #1B1714;
-            box-shadow: 0 12px 35px rgba(0,0,0,.18);
-        }
-
-        .carousel-gallery-slides {
-            position: relative;
-            width: 100%;
-            min-height: 300px;
-        }
-
-        .carousel-gallery-slide {
-            display: none;
-            animation: fade .5s ease;
-        }
-
-        .carousel-gallery-slide.active {
-            display: block;
-        }
-
-        .carousel-gallery-slide img {
-            display: block;
-            width: 100%;
-            height: auto;
-            max-height: 600px;
-            object-fit: cover;
-            border-radius: 16px;
-        }
-
-        @keyframes fade {
-            from { opacity: 0.3; }
-            to { opacity: 1; }
-        }
-
-        .carousel-gallery-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 46px;
-            height: 46px;
-            border: none;
-            border-radius: 50%;
-            background: rgba(0,0,0,0.55);
-            color: #fff;
-            cursor: pointer;
-            font-size: 24px;
-            transition: 0.25s;
-            z-index: 20;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-gallery-btn:hover {
-            background: rgba(0,0,0,0.8);
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .carousel-gallery-btn.prev {
-            left: 15px;
-        }
-
-        .carousel-gallery-btn.next {
-            right: 15px;
-        }
-
-        .carousel-gallery-dots {
-            position: absolute;
-            left: 50%;
-            bottom: 18px;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            background: rgba(0,0,0,0.45);
-            padding: 8px 14px;
-            border-radius: 30px;
-            z-index: 20;
-        }
-
-        .carousel-gallery-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #bbb;
-            cursor: pointer;
-            transition: 0.25s;
-        }
-
-        .carousel-gallery-dot.active {
-            background: #fff;
-            transform: scale(1.2);
-        }
-
-        @media (max-width: 992px) {
-            .carousel-gallery-container {
-                width: 85%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .carousel-gallery-container {
-                width: 94%;
-            }
-            .carousel-gallery-btn {
-                width: 38px;
-                height: 38px;
-                font-size: 20px;
-            }
-            .carousel-gallery-slide img {
-                max-height: 400px;
-            }
-            .story-text p {
-                font-size: 0.95rem;
-            }
-            .story-text .testimonio {
-                font-size: 0.95rem;
-                padding: 1.25rem 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .carousel-gallery-container {
-                width: 98%;
-            }
-            .carousel-gallery-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 16px;
-            }
-            .carousel-gallery-slide img {
-                max-height: 300px;
-            }
-            .story-text p {
-                font-size: 0.9rem;
-            }
-            .story-text .testimonio {
-                font-size: 0.9rem;
-                padding: 1rem 1.25rem;
-            }
-        }
-
-        /* ===== MENÚ MÓVIL ===== */
-        #mobile-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: #f8f5f0;
-            border-top: 1px solid rgba(139, 122, 107, 0.3);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            z-index: 1000;
-            max-height: calc(100vh - 80px);
-            overflow-y: auto;
-        }
-
-        #mobile-menu.open {
-            display: block;
-        }
-    </style>
 </head>
 
 <body>
@@ -281,11 +56,7 @@
                     <a href="./Contacto.html"
                         class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
                         Contacto
-                    </a>
-                    <a href="../admin/"
-                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
-                        <i class="fas fa-crown"></i> Admin
-                    </a>
+                </a>
                 </div>
 
                 <!-- Botón CTA -->
@@ -334,10 +105,6 @@
                 <a href="./Contacto.html"
                     class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
                     Contacto
-                </a>
-                <a href="../admin/"
-                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
-                    <i class="fas fa-crown"></i> Admin
                 </a>
                 <div class="pt-3">
                     <a href="ReservaForm.html">
@@ -520,7 +287,7 @@
                 <p class="text-xs text-off-white/50 mt-1">Nuestras Redes Sociales</p>
 
                 <div class="flex justify-center gap-8 mt-4 text-2xl">
-                    <a href="https://wa.me/5492922452205" target="_blank" rel="noopener noreferrer"
+                    <a href="https://wa.me/5492915094478"" target="_blank" rel="noopener noreferrer"
                         class="text-off-white/80 hover:text-white transition-custom hover:scale-110 transform duration-200"
                         aria-label="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
