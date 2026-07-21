@@ -77,7 +77,7 @@ function verGaleria() {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Carrusel
+    // === CARRUSEL ===
     showSlide(0);
     startAutoSlide();
 
@@ -117,13 +117,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Boton Ver Galeria
+    // === BOTON VER GALERIA ===
     var btnGaleria = document.getElementById('btnVerGaleria');
     if (btnGaleria) {
         btnGaleria.addEventListener('click', verGaleria);
     }
 
-    // Menu mobile toggle
+    // === MENU MOBILE ===
     var menuToggle = document.getElementById('menu-toggle');
     var mobileMenu = document.getElementById('mobile-menu');
     if (menuToggle && mobileMenu) {

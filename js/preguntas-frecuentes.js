@@ -21,14 +21,14 @@ const faqData = [
         id: 3,
         category: 'servicios',
         question: '¿Se desplazan a domicilio?',
-        answer: 'Sí, nos desplazamos a tu domicilio o al lugar del evento. Trabajamos en Coronel Pringles y toda la zona, incluyendo localidades cercanas. Consultanos por disponibilidad y costos de traslado.'
+        answer: 'Sí, nos desplazamos a tu domicilio o al lugar del evento. Trabajamos en Coronel Pringles y toda la zona, incluyendo localidades cercanas. Consultanos por disponibilidad.'
     },
     // Reservas
     {
         id: 4,
         category: 'reservas',
         question: '¿Cómo puedo reservar un turno?',
-        answer: 'Podés reservar tu turno a través de nuestra página web en la sección "Reservar Cita", o directamente por WhatsApp al +54 9 2922 45-2205. Te recomendamos hacerlo con anticipación para asegurar disponibilidad en la fecha que necesitas.'
+        answer: 'Podés reservar tu turno a través de nuestra página web en la sección "Reservar Cita". Te recomendamos hacerlo con anticipación para asegurar disponibilidad en la fecha que necesitas.'
     },
     {
         id: 5,
@@ -36,50 +36,13 @@ const faqData = [
         question: '¿Con cuánta anticipación debo reservar?',
         answer: 'Recomendamos reservar con al menos 15 a 30 días de anticipación, especialmente para eventos como bodas o quinceañeras. En temporada alta (primavera-verano), sugerimos hacerlo con 2 meses de anticipación.'
     },
-    {
-        id: 6,
-        category: 'reservas',
-        question: '¿Qué necesito para la prueba de maquillaje?',
-        answer: 'Para la prueba te recomendamos venir con el rostro limpio y sin maquillaje. Si tenés referencias o fotos de looks que te gusten, traelas para que podamos trabajar sobre ellas. También es ideal tener una idea del vestido o estilo del evento.'
-    },
     // Precios
-    {
-        id: 7,
-        category: 'precios',
-        question: '¿Cuáles son los precios de los servicios?',
-        answer: 'Los precios varían según el servicio, la complejidad del look y la cantidad de personas. Te invitamos a consultarnos por WhatsApp para darte un presupuesto personalizado sin compromiso. Trabajamos con diferentes paquetes y promociones.'
-    },
     {
         id: 8,
         category: 'precios',
         question: '¿Aceptan medios de pago?',
         answer: 'Aceptamos efectivo, transferencia bancaria y todos los medios de pago electrónicos. También trabajamos con Mercado Pago. Consultanos por las opciones disponibles y financiación.'
     },
-    {
-        id: 9,
-        category: 'precios',
-        question: '¿Tienen promociones o descuentos?',
-        answer: 'Sí, ofrecemos promociones especiales para grupos (novia + acompañantes), paquetes combinados de maquillaje y peinado, y descuentos por reserva anticipada. Consultanos por las promociones vigentes.'
-    },
-    // General
-    {
-        id: 10,
-        category: 'general',
-        question: '¿Qué productos utilizan?',
-        answer: 'Trabajamos con productos profesionales de alta calidad, incluyendo marcas reconocidas como MAC, L\'Oréal, NARS, Urban Decay, y productos hipoalergénicos para pieles sensibles. Siempre priorizamos la salud de tu piel y cabello.'
-    },
-    {
-        id: 11,
-        category: 'general',
-        question: '¿Cuánto dura el maquillaje y el peinado?',
-        answer: 'Nuestros maquillajes están diseñados para durar todo el evento, con una duración de 8 a 12 horas dependiendo del tipo de piel y las condiciones. Los peinados se fijan para mantener su forma durante toda la jornada. Usamos productos de larga duración y técnicas profesionales.'
-    },
-    {
-        id: 12,
-        category: 'general',
-        question: '¿Trabajan con todo tipo de cabello y piel?',
-        answer: 'Sí, trabajamos con todo tipo de cabello (lacio, ondulado, rizado, afro) y todo tipo de piel (seca, grasa, mixta, sensible). Contamos con productos y técnicas específicas para cada necesidad, asegurando un resultado impecable en todos los casos.'
-    }
 ];
 
 // ============================================================
@@ -115,8 +78,7 @@ function renderFaqs(category = 'all') {
         const badgeMap = {
             servicios: 'Servicios',
             reservas: 'Reservas',
-            precios: 'Precios',
-            general: 'General'
+            precios: 'Precios'
         };
 
         faqItem.innerHTML = `

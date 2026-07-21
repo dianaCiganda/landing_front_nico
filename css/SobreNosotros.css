@@ -80,7 +80,6 @@
 .carousel-gallery-slides {
     position: relative;
     width: 100%;
-    /* Eliminamos min-height fijo para que se adapte al contenido */
     background: #1B1714;
     display: flex;
     align-items: center;
@@ -101,7 +100,6 @@
     display: block;
     width: 100%;
     height: auto;
-    /* Eliminamos max-height fijo para que la imagen se muestre completa */
     object-fit: contain;
     border-radius: 16px;
 }
@@ -295,12 +293,11 @@
     }
     
     .carousel-gallery-slides {
-        background: transparent; /* Eliminamos fondo oscuro para que no se vea la franja negra */
+        background: transparent;
     }
     
     .carousel-gallery-slide img {
         border-radius: 10px;
-        /* La imagen ya tiene height: auto y object-fit: contain, así que se adapta */
     }
     
     .carousel-gallery-btn {
