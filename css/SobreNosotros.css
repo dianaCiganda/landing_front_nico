@@ -1,278 +1,70 @@
-/* =====================================================
-   CARRUSEL GALERÍA
-===================================================== */
-
-.carousel-gallery-container{
-    position:relative;
-    width:70%;
-    max-width:900px;
-    margin:0 auto 40px;
-    border-radius:16px;
-    overflow:hidden;
-    background:#1B1714;
-    box-shadow:0 12px 35px rgba(0,0,0,.18);
-}
-
-.carousel-gallery{
-    position:relative;
-    width:100%;
-}
-
-.carousel-gallery-slides{
-    position:relative;
-    width:100%;
-}
-
-.carousel-gallery-slide{
-    display:none;
-    animation:fade .35s ease;
-}
-
-.carousel-gallery-slide.active{
-    display:block;
-}
-
-.carousel-gallery-slide img{
-    display:block;
-    width:100%;
-    height:auto;
-    border-radius:16px;
-}
-
-/* Animación */
-
-@keyframes fade{
-
-    from{
-        opacity:.3;
-    }
-
-    to{
-        opacity:1;
-    }
-
-}
-
-/* ====================================
-   BOTONES
-==================================== */
-
-.carousel-gallery-btn{
-
-    position:absolute;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    width:46px;
-
-    height:46px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:rgba(0,0,0,.55);
-
-    color:#fff;
-
-    cursor:pointer;
-
-    font-size:24px;
-
-    transition:.25s;
-
-    z-index:20;
-
-}
-
-.carousel-gallery-btn:hover{
-
-    background:rgba(0,0,0,.8);
-
-}
-
-.carousel-gallery-btn.prev{
-
-    left:15px;
-
-}
-
-.carousel-gallery-btn.next{
-
-    right:15px;
-
-}
-
-/* ====================================
-   DOTS
-==================================== */
-
-.carousel-gallery-dots{
-
-    position:absolute;
-
-    left:50%;
-
-    bottom:18px;
-
-    transform:translateX(-50%);
-
-    display:flex;
-
-    gap:8px;
-
-    background:rgba(0,0,0,.45);
-
-    padding:8px 14px;
-
-    border-radius:30px;
-
-}
-
-.carousel-gallery-dot{
-
-    width:10px;
-
-    height:10px;
-
-    border-radius:50%;
-
-    background:#bbb;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-.carousel-gallery-dot.active{
-
-    background:#fff;
-
-    transform:scale(1.2);
-
-}
-
-/* ====================================
-   RESPONSIVE
-==================================== */
-
-@media(max-width:992px){
-
-    .carousel-gallery-container{
-
-        width:85%;
-
-    }
-
-}
-
-@media(max-width:768px){
-
-    .carousel-gallery-container{
-
-        width:94%;
-
-    }
-
-    .carousel-gallery-btn{
-
-        width:38px;
-
-        height:38px;
-
-        font-size:20px;
-
-    }
-
-}
-
-@media(max-width:480px){
-
-    .carousel-gallery-container{
-
-        width:98%;
-
-    }
-
-    .carousel-gallery-btn{
-
-        width:32px;
-
-        height:32px;
-
-        font-size:16px;
-
-    }
-
-}
-
-/* =====================================================
-   MEJORAS PARA TEXTOS - QUE SE LEA COMPLETO
-===================================================== */
-
-/* Contenedor de historias - altura automática */
-.story-text {
-    max-height: none !important;
-    height: auto !important;
-    overflow: visible !important;
-}
+/* ============================================================
+   SOBRE NOSOTROS - ESTILOS COMPLETOS
+   ============================================================ */
+
+/* ============================================================
+   SOBRE NOSOTROS - ESTILOS PARA TEXTO OSCURO
+   ============================================================ */
 
 .story-text p {
-    margin-bottom: 1.25rem;
+    color: #2d1f14 !important;
+    font-weight: 400;
     line-height: 1.8;
-    color: #3d2c1e;
+    margin-bottom: 1.25rem;
 }
 
-/* Asegurar que los contenedores de historia muestren todo el texto */
-.bg-white.rounded-3xl {
-    height: auto !important;
-    min-height: 200px;
+.story-text strong {
+    color: #3e2d23;
+    font-weight: 700;
 }
 
-/* Los párrafos especiales */
-.story-text .text-soft-beige {
-    color: #8b7a6b;
+/* ===== TESTIMONIO / CITA DESTACADA ===== */
+.story-text .testimonio {
+    color: #2d1f14 !important;
     font-style: italic;
-    padding: 1.5rem;
+    padding: 1.5rem 2rem;
     background: #f8f5f0;
     border-radius: 12px;
     border-left: 4px solid #c4a882;
     margin-top: 1.5rem;
+    font-weight: 500;
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
 
-/* Ajustes responsive para el texto */
-@media (max-width: 768px) {
-    .story-text {
-        font-size: 0.95rem;
-    }
-    
-    .story-text p {
-        margin-bottom: 1rem;
-        line-height: 1.7;
-    }
-    
-    .story-text .text-soft-beige {
-        padding: 1rem;
-        font-size: 1rem;
-    }
+.story-text .testimonio strong {
+    color: #3e2d23;
 }
 
-@media (max-width: 480px) {
-    .story-text {
-        font-size: 0.9rem;
-    }
-    
-    .story-text p {
-        line-height: 1.6;
-    }
+.story-text .testimonio::before {
+    content: '"';
+    font-size: 2rem;
+    color: #c4a882;
+    margin-right: 0.25rem;
 }
 
-/* =====================================================
-   CARRUSEL - Ajustes para que no tape el texto
-===================================================== */
+.story-text .testimonio::after {
+    content: '"';
+    font-size: 2rem;
+    color: #c4a882;
+    margin-left: 0.25rem;
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
+.divider-custom {
+    width: 60px;
+    height: 3px;
+    background: #8b7a6b;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+/* ============================================================
+   CARRUSEL - ESTILOS CORREGIDOS
+   ============================================================ */
 
 .carousel-gallery-container {
     position: relative;
@@ -285,42 +77,41 @@
     box-shadow: 0 12px 35px rgba(0,0,0,.18);
 }
 
-.carousel-gallery {
-    position: relative;
-    width: 100%;
-}
-
 .carousel-gallery-slides {
     position: relative;
     width: 100%;
-    min-height: 300px;
+    /* Eliminamos min-height fijo para que se adapte al contenido */
+    background: #1B1714;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-gallery-slide {
-    display: none;
+    display: none !important;
     animation: fade .5s ease;
+    width: 100%;
 }
 
 .carousel-gallery-slide.active {
-    display: block;
+    display: block !important;
 }
 
 .carousel-gallery-slide img {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 600px;
-    object-fit: cover;
+    /* Eliminamos max-height fijo para que la imagen se muestre completa */
+    object-fit: contain;
     border-radius: 16px;
 }
 
-/* Animación */
 @keyframes fade {
     from { opacity: 0.3; }
     to { opacity: 1; }
 }
 
-/* Botones del carrusel */
+/* ===== BOTONES DEL CARRUSEL ===== */
 .carousel-gallery-btn {
     position: absolute;
     top: 50%;
@@ -333,7 +124,7 @@
     color: #fff;
     cursor: pointer;
     font-size: 24px;
-    transition: 0.25s;
+    transition: all 0.25s ease;
     z-index: 20;
     display: flex;
     align-items: center;
@@ -353,7 +144,7 @@
     right: 15px;
 }
 
-/* Dots */
+/* ===== DOTS DEL CARRUSEL ===== */
 .carousel-gallery-dots {
     position: absolute;
     left: 50%;
@@ -373,7 +164,12 @@
     border-radius: 50%;
     background: #bbb;
     cursor: pointer;
-    transition: 0.25s;
+    transition: all 0.25s ease;
+}
+
+.carousel-gallery-dot:hover {
+    background: #fff;
+    transform: scale(1.1);
 }
 
 .carousel-gallery-dot.active {
@@ -381,16 +177,66 @@
     transform: scale(1.2);
 }
 
-/* Responsive carrusel */
+/* ============================================================
+   MENÚ MÓVIL
+   ============================================================ */
+
+#mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #f8f5f0;
+    border-top: 1px solid rgba(139, 122, 107, 0.3);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+#mobile-menu.open {
+    display: block;
+}
+
+#mobile-menu .block {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #3e2d23;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(139, 122, 107, 0.1);
+}
+
+#mobile-menu .block:hover {
+    background: rgba(139, 122, 107, 0.1);
+}
+
+#mobile-menu .pt-3 {
+    padding-top: 0.75rem;
+}
+
+#mobile-menu .w-full {
+    width: 100%;
+}
+
+/* ============================================================
+   RESPONSIVE - CARRUSEL CORREGIDO
+   ============================================================ */
+
+/* Tablets y pantallas medianas */
 @media (max-width: 992px) {
     .carousel-gallery-container {
         width: 85%;
     }
 }
 
+/* Móviles y tablets pequeñas */
 @media (max-width: 768px) {
+    /* Carrusel */
     .carousel-gallery-container {
         width: 94%;
+        border-radius: 12px;
     }
     
     .carousel-gallery-btn {
@@ -399,23 +245,237 @@
         font-size: 20px;
     }
     
+    .carousel-gallery-btn.prev {
+        left: 10px;
+    }
+    
+    .carousel-gallery-btn.next {
+        right: 10px;
+    }
+    
     .carousel-gallery-slide img {
-        max-height: 400px;
+        border-radius: 12px;
+    }
+    
+    .carousel-gallery-dots {
+        bottom: 12px;
+        padding: 6px 12px;
+        gap: 6px;
+    }
+    
+    .carousel-gallery-dot {
+        width: 9px;
+        height: 9px;
+    }
+    
+    /* Texto */
+    .story-text p {
+        font-size: 0.95rem;
+    }
+    
+    .story-text .testimonio {
+        font-size: 0.95rem;
+        padding: 1.25rem 1.5rem;
+    }
+    
+    /* Encabezado */
+    .py-12 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 }
 
+/* Móviles pequeños */
 @media (max-width: 480px) {
+    /* Carrusel - CORREGIDO: se adapta al contenido */
     .carousel-gallery-container {
         width: 98%;
+        margin: 0 auto 25px;
+        border-radius: 10px;
     }
     
-    .carousel-gallery-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
+    .carousel-gallery-slides {
+        background: transparent; /* Eliminamos fondo oscuro para que no se vea la franja negra */
     }
     
     .carousel-gallery-slide img {
-        max-height: 300px;
+        border-radius: 10px;
+        /* La imagen ya tiene height: auto y object-fit: contain, así que se adapta */
+    }
+    
+    .carousel-gallery-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+    
+    .carousel-gallery-btn.prev {
+        left: 6px;
+    }
+    
+    .carousel-gallery-btn.next {
+        right: 6px;
+    }
+    
+    .carousel-gallery-dots {
+        bottom: 8px;
+        padding: 4px 8px;
+        gap: 4px;
+        background: rgba(0,0,0,0.5);
+    }
+    
+    .carousel-gallery-dot {
+        width: 7px;
+        height: 7px;
+    }
+    
+    /* Texto */
+    .story-text p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    
+    .story-text .testimonio {
+        font-size: 0.9rem;
+        padding: 1rem 1.25rem;
+        border-left-width: 3px;
+    }
+    
+    .story-text .testimonio::before,
+    .story-text .testimonio::after {
+        font-size: 1.5rem;
+    }
+    
+    /* Encabezado */
+    .py-12 {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .py-16 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    /* Tarjetas */
+    .p-8 {
+        padding: 1.5rem;
+    }
+    
+    .p-12 {
+        padding: 1.5rem;
+    }
+    
+    /* Títulos */
+    .text-4xl {
+        font-size: 2rem;
+    }
+    
+    .text-2xl {
+        font-size: 1.25rem;
+    }
+    
+    /* Menú móvil */
+    #mobile-menu .block {
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Pantallas muy pequeñas (menos de 360px) */
+@media (max-width: 360px) {
+    .carousel-gallery-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+    }
+    
+    .carousel-gallery-btn.prev {
+        left: 4px;
+    }
+    
+    .carousel-gallery-btn.next {
+        right: 4px;
+    }
+    
+    .carousel-gallery-dots {
+        bottom: 6px;
+        padding: 3px 6px;
+        gap: 3px;
+    }
+    
+    .carousel-gallery-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* ============================================================
+   EXTRAS - MEJORAS DE LEGIBILIDAD
+   ============================================================ */
+
+/* Asegurar que los contenedores de historia sean legibles */
+.bg-white.rounded-3xl {
+    background: #ffffff;
+    border: 1px solid rgba(139, 122, 107, 0.15);
+}
+
+/* Mejorar el espaciado en los textos */
+.story-text {
+    max-width: 100%;
+}
+
+.story-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Hacer que los títulos de sección sean más visibles */
+h2.text-dark-brown {
+    color: #3e2d23;
+}
+
+h3.text-dark-brown {
+    color: #3e2d23;
+}
+
+/* Mejora para los spans con color warm-gray */
+.text-warm-gray {
+    color: #8b7a6b;
+}
+
+/* Ajustes para el patrón de fondo */
+.pattern-bg {
+    background-color: #f8f5f0;
+    background-image: radial-gradient(circle, rgba(139, 122, 107, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* ============================================================
+   ANIMACIONES ADICIONALES
+   ============================================================ */
+
+/* Transición suave para el hover de las tarjetas */
+.bg-white.rounded-3xl {
+    transition: all 0.3s ease;
+}
+
+.bg-white.rounded-3xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+/* Animación de entrada para los testimonios */
+.story-text .testimonio {
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

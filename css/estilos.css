@@ -84,7 +84,10 @@ html {
     max-height: 500px;
 }
 
-/* ===== CARRUSEL ===== */
+/* ============================================================
+   CARRUSEL - VERSIÓN CORREGIDA PARA RESPONSIVE
+   ============================================================ */
+
 .carousel-wrapper {
     width: 75%;
     margin: 0 auto;
@@ -99,12 +102,14 @@ html {
     max-height: 500px;
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(27, 23, 20, 0.2);
+    background: #EDEDE8;
 }
 
 .carousel-slides {
     display: flex;
     transition: transform 0.6s ease-in-out;
     height: 100%;
+    width: 100%;
 }
 
 .carousel-slide {
@@ -114,16 +119,18 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #EDEDE8;
 }
 
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
-    background-color: #EDEDE8;
+    display: block;
 }
 
+/* Botones del carrusel */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -138,6 +145,9 @@ html {
     z-index: 10;
     backdrop-filter: blur(4px);
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-btn:hover {
@@ -153,6 +163,7 @@ html {
     right: 16px;
 }
 
+/* Dots del carrusel */
 .carousel-dots {
     position: absolute;
     bottom: 20px;
@@ -183,6 +194,11 @@ html {
     background: #EDEDE8;
 }
 
+/* ============================================================
+   CARRUSEL - RESPONSIVE CORREGIDO
+   ============================================================ */
+
+/* Tablets y pantallas medianas */
 @media (max-width: 1024px) {
     .carousel-wrapper {
         width: 85%;
@@ -191,8 +207,12 @@ html {
         height: 400px;
         max-height: 400px;
     }
+    .carousel-slide img {
+        object-fit: cover;
+    }
 }
 
+/* Tablets pequeñas y móviles grandes */
 @media (max-width: 768px) {
     .carousel-wrapper {
         width: 92%;
@@ -205,6 +225,8 @@ html {
     .carousel-btn {
         padding: 10px 14px;
         font-size: 18px;
+        width: 40px;
+        height: 40px;
     }
     .carousel-btn.prev {
         left: 10px;
@@ -220,34 +242,69 @@ html {
         width: 10px;
         height: 10px;
     }
+    .carousel-slide img {
+        object-fit: cover;
+    }
 }
 
+/* Móviles */
 @media (max-width: 480px) {
     .carousel-wrapper {
         width: 96%;
+        padding: 0 4px;
     }
     .carousel-container {
-        height: 250px;
-        max-height: 250px;
+        height: 220px;
+        max-height: 220px;
         border-radius: 10px;
     }
     .carousel-btn {
         padding: 6px 10px;
         font-size: 14px;
+        width: 32px;
+        height: 32px;
+    }
+    .carousel-btn.prev {
+        left: 6px;
+    }
+    .carousel-btn.next {
+        right: 6px;
     }
     .carousel-dots {
-        bottom: 10px;
-        gap: 6px;
+        bottom: 8px;
+        gap: 5px;
     }
     .carousel-dot {
         width: 8px;
         height: 8px;
+        border-width: 1px;
+    }
+    .carousel-slide img {
+        object-fit: cover;
     }
 }
 
-/* ============================================
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+    .carousel-container {
+        height: 180px;
+        max-height: 180px;
+    }
+    .carousel-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    .carousel-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* ============================================================
    COMENTARIOS
-   ============================================ */
+   ============================================================ */
 
 /* Animación de entrada */
 @keyframes fadeInUp {
@@ -334,6 +391,26 @@ html {
     background: #dc2626;
     transform: scale(1.05);
 }
-#mobile-menu {
-    display: none;
+
+/* ============================================================
+   EXTRAS - MEJORAS DE COMPORTAMIENTO
+   ============================================================ */
+
+/* Evitar desbordamiento en móviles */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Asegurar que las imágenes no se desborden */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mejorar el comportamiento del contenedor del carrusel */
+.carousel-container,
+.carousel-slides,
+.carousel-slide {
+    overflow: hidden;
 }

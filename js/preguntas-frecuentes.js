@@ -171,23 +171,44 @@ document.querySelectorAll('.faq-category-btn').forEach(btn => {
 });
 
 // ============================================================
-// MENÚ RESPONSIVE
+// MENÚ RESPONSIVE - CORREGIDO
 // ============================================================
 
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 
 if (menuToggle && mobileMenu) {
+    // Asegurar que el menú comienza cerrado
     mobileMenu.style.display = 'none';
+    mobileMenu.style.maxHeight = '0';
+    mobileMenu.style.overflow = 'hidden';
+    mobileMenu.style.transition = 'max-height 0.3s ease';
 
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', function() {
         const isOpen = mobileMenu.style.display === 'block';
-        mobileMenu.style.display = isOpen ? 'none' : 'block';
+        
+        if (isOpen) {
+            // Cerrar menú
+            mobileMenu.style.maxHeight = '0';
+            setTimeout(() => {
+                mobileMenu.style.display = 'none';
+            }, 300);
+        } else {
+            // Abrir menú
+            mobileMenu.style.display = 'block';
+            // Forzar reflow para que la transición funcione
+            void mobileMenu.offsetHeight;
+            mobileMenu.style.maxHeight = '500px';
+        }
     });
 
+    // Cerrar menú al hacer clic en un enlace
     mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.style.display = 'none';
+        link.addEventListener('click', function() {
+            mobileMenu.style.maxHeight = '0';
+            setTimeout(() => {
+                mobileMenu.style.display = 'none';
+            }, 300);
         });
     });
 }
