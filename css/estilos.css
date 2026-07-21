@@ -1,27 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* ===== PALETA DE COLORES ===== */
 .bg-dark-brown { background-color: #1B1714; }
 .bg-warm-gray { background-color: #B9B4A9; }
-.bg-soft-beige { background-color: #DOCDC4; }
+.bg-soft-beige { background-color: #D0CDC4; }
 .bg-off-white { background-color: #EDEDE8; }
 
 .text-dark-brown { color: #1B1714; }
 .text-warm-gray { color: #B9B4A9; }
-.text-soft-beige { color: #DOCDC4; }
+.text-soft-beige { color: #D0CDC4; }
 .text-off-white { color: #EDEDE8; }
 
 .border-dark-brown { border-color: #1B1714; }
 .border-warm-gray { border-color: #B9B4A9; }
-.border-soft-beige { border-color: #DOCDC4; }
+.border-soft-beige { border-color: #D0CDC4; }
 
 .hover\:bg-dark-brown:hover { background-color: #1B1714; }
 .hover\:bg-warm-gray:hover { background-color: #B9B4A9; }
-.hover\:bg-soft-beige:hover { background-color: #DOCDC4; }
+.hover\:bg-soft-beige:hover { background-color: #D0CDC4; }
 .hover\:text-off-white:hover { color: #EDEDE8; }
 .hover\:text-dark-brown:hover { color: #1B1714; }
-.hover\:text-soft-beige:hover { color: #DOCDC4; }
+.hover\:text-soft-beige:hover { color: #D0CDC4; }
 .hover\:border-warm-gray:hover { border-color: #B9B4A9; }
 
 .shadow-custom { box-shadow: 0 4px 20px rgba(27, 23, 20, 0.12); }
@@ -83,7 +84,10 @@ html {
     max-height: 500px;
 }
 
-/* ===== CARRUSEL - TAMAÑO OPTIMIZADO ===== */
+/* ============================================================
+   CARRUSEL - VERSIÓN CORREGIDA PARA RESPONSIVE
+   ============================================================ */
+
 .carousel-wrapper {
     width: 75%;
     margin: 0 auto;
@@ -98,12 +102,14 @@ html {
     max-height: 500px;
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(27, 23, 20, 0.2);
+    background: #EDEDE8;
 }
 
 .carousel-slides {
     display: flex;
     transition: transform 0.6s ease-in-out;
     height: 100%;
+    width: 100%;
 }
 
 .carousel-slide {
@@ -113,16 +119,18 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #EDEDE8;
 }
 
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
-    background-color: #EDEDE8;
+    display: block;
 }
 
+/* Botones del carrusel */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -137,6 +145,9 @@ html {
     z-index: 10;
     backdrop-filter: blur(4px);
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-btn:hover {
@@ -152,6 +163,7 @@ html {
     right: 16px;
 }
 
+/* Dots del carrusel */
 .carousel-dots {
     position: absolute;
     bottom: 20px;
@@ -182,7 +194,11 @@ html {
     background: #EDEDE8;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ============================================================
+   CARRUSEL - RESPONSIVE CORREGIDO
+   ============================================================ */
+
+/* Tablets y pantallas medianas */
 @media (max-width: 1024px) {
     .carousel-wrapper {
         width: 85%;
@@ -191,8 +207,12 @@ html {
         height: 400px;
         max-height: 400px;
     }
+    .carousel-slide img {
+        object-fit: cover;
+    }
 }
 
+/* Tablets pequeñas y móviles grandes */
 @media (max-width: 768px) {
     .carousel-wrapper {
         width: 92%;
@@ -205,6 +225,8 @@ html {
     .carousel-btn {
         padding: 10px 14px;
         font-size: 18px;
+        width: 40px;
+        height: 40px;
     }
     .carousel-btn.prev {
         left: 10px;
@@ -220,27 +242,175 @@ html {
         width: 10px;
         height: 10px;
     }
+    .carousel-slide img {
+        object-fit: cover;
+    }
 }
 
+/* Móviles */
 @media (max-width: 480px) {
     .carousel-wrapper {
         width: 96%;
+        padding: 0 4px;
     }
     .carousel-container {
-        height: 250px;
-        max-height: 250px;
+        height: 220px;
+        max-height: 220px;
         border-radius: 10px;
     }
     .carousel-btn {
         padding: 6px 10px;
         font-size: 14px;
+        width: 32px;
+        height: 32px;
+    }
+    .carousel-btn.prev {
+        left: 6px;
+    }
+    .carousel-btn.next {
+        right: 6px;
     }
     .carousel-dots {
-        bottom: 10px;
-        gap: 6px;
+        bottom: 8px;
+        gap: 5px;
     }
     .carousel-dot {
         width: 8px;
         height: 8px;
+        border-width: 1px;
     }
+    .carousel-slide img {
+        object-fit: cover;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+    .carousel-container {
+        height: 180px;
+        max-height: 180px;
+    }
+    .carousel-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    .carousel-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* ============================================================
+   COMENTARIOS
+   ============================================================ */
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.comentario-item {
+    animation: fadeInUp 0.4s ease;
+}
+
+/* Efecto hover en comentarios */
+#listaComentarios .bg-white {
+    transition: all 0.3s ease;
+}
+
+#listaComentarios .bg-white:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Scrollbar personalizada */
+#listaComentarios {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+#listaComentarios::-webkit-scrollbar {
+    width: 4px;
+}
+
+#listaComentarios::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#listaComentarios::-webkit-scrollbar-thumb {
+    background: #B9B4A9;
+    border-radius: 10px;
+}
+
+#listaComentarios::-webkit-scrollbar-thumb:hover {
+    background: #8a7a6a;
+}
+
+/* Botones de acción en comentarios */
+.btn-aprobar-comentario {
+    background: #10b981;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-aprobar-comentario:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+.btn-rechazar-comentario {
+    background: #ef4444;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-rechazar-comentario:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+/* ============================================================
+   EXTRAS - MEJORAS DE COMPORTAMIENTO
+   ============================================================ */
+
+/* Evitar desbordamiento en móviles */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Asegurar que las imágenes no se desborden */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mejorar el comportamiento del contenedor del carrusel */
+.carousel-container,
+.carousel-slides,
+.carousel-slide {
+    overflow: hidden;
 }

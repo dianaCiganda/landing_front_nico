@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Nico & Agus</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- CSS del panel de administración -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div id="app">
+
+    <!-- ===== LOGIN ===== -->
+    <div id="loginPanel" class="login-container" style="display:none;">
+        <div class="login-box">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+            </div>
+            <h2>Panel de Administración</h2>
+            <p class="subtitle">Ingresa la contraseña para administrar los comentarios</p>
+            
+            <div class="form-group">
+                <label for="passwordInput">Contraseña</label>
+                <input type="password" id="passwordInput" placeholder="Ingresa tu contraseña" 
+                       onkeypress="if(event.key==='Enter') login()">
+            </div>
+            
+            <button onclick="login()">
+                <i class="fas fa-sign-in-alt"></i> Ingresar
+            </button>
+            
+            <div id="loginError" class="error">❌ Contraseña incorrecta</div>
+        </div>
+    </div>
+
+    <!-- ===== PANEL PRINCIPAL ===== -->
+    <div id="adminPanel" style="display:none;">
+        
+        <header class="admin-header">
+            <h1>
+                <i class="fas fa-crown"></i>
+                Panel <span>de Administración</span>
+            </h1>
+            <div class="header-actions">
+                <span class="fecha" id="fechaActual"></span>
+                <button class="btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Salir
+                </button>
+            </div>
+        </header>
+
+        <div class="container">
+
+            <!-- Estadísticas -->
+            <div class="stats">
+                <div class="stat-card total">
+                    <span class="icon">📊</span>
+                    <div class="numero" id="totalCount">0</div>
+                    <div class="label">Total Comentarios</div>
+                </div>
+                <div class="stat-card pendiente">
+                    <span class="icon">⏳</span>
+                    <div class="numero" id="pendientesCount">0</div>
+                    <div class="label">Pendientes de Aprobación</div>
+                </div>
+                <div class="stat-card aprobado">
+                    <span class="icon">✅</span>
+                    <div class="numero" id="aprobadosCount">0</div>
+                    <div class="label">Comentarios Aprobados</div>
+                </div>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filtros">
+                <button class="filtro-btn active" data-filtro="todos">
+                    📋 Todos <span class="badge" id="badgeTodos">0</span>
+                </button>
+                <button class="filtro-btn" data-filtro="pendientes">
+                    ⏳ Pendientes <span class="badge" id="badgePendientes">0</span>
+                </button>
+                <button class="filtro-btn" data-filtro="aprobados">
+                    ✅ Aprobados <span class="badge" id="badgeAprobados">0</span>
+                </button>
+            </div>
+
+            <!-- Lista de comentarios -->
+            <div id="listaComentarios"></div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// ============================================
+// PANEL DE ADMINISTRACIÓN
+// ============================================
+
+// CAMBIA ESTA CONTRASEÑA POR LA QUE QUIERAS
+const ADMIN_PASSWORD = 'admin123';
+
+let filtroActual = 'todos';
+let todosComentarios = [];
+
+// ============ LOGIN ============
+
+function login() {
+    const password = document.getElementById('passwordInput').value;
+    const error = document.getElementById('loginError');
+    
+    if (password === ADMIN_PASSWORD) {
+        localStorage.setItem('adminAuth', 'true');
+        mostrarPanel(true);
+        error.style.display = 'none';
+        document.getElementById('passwordInput').value = '';
+    } else {
+        error.style.display = 'block';
+        document.getElementById('passwordInput').value = '';
+        document.getElementById('passwordInput').focus();
+    }
+}
+
+function logout() {
+    localStorage.removeItem('adminAuth');
+    mostrarPanel(false);
+}
+
+function mostrarPanel(autenticado) {
+    const loginPanel = document.getElementById('loginPanel');
+    const adminPanel = document.getElementById('adminPanel');
+    
+    if (autenticado) {
+        loginPanel.style.display = 'none';
+        adminPanel.style.display = 'block';
+        cargarComentarios();
+        mostrarFecha();
+    } else {
+        loginPanel.style.display = 'flex';
+        adminPanel.style.display = 'none';
+        document.getElementById('passwordInput').value = '';
+    }
+}
+
+// ============ FECHA ============
+
+function mostrarFecha() {
+    const ahora = new Date();
+    document.getElementById('fechaActual').textContent = 
+        '📅 ' + ahora.toLocaleDateString('es-ES', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+}
+setInterval(mostrarFecha, 60000);
+
+// ============ ESCAPE HTML ============
+
+function escapeHTML(texto) {
+    if (!texto) return '';
+    const div = document.createElement('div');
+    div.textContent = texto;
+    return div.innerHTML;
+}
+
+// ============ CARGAR COMENTARIOS ============
+
+async function cargarComentarios() {
+    try {
+        const response = await fetch('../api/obtener_todos.php');
+        const data = await response.json();
+        
+        if (data.success === false) {
+            console.error(data.message);
+            return;
+        }
+        
+        todosComentarios = data;
+        actualizarEstadisticas();
+        renderizarComentarios();
+    } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('listaComentarios').innerHTML = `
+            <div class="empty">
+                <span class="icon">❌</span>
+                <h3>Error de conexión</h3>
+                <p>No se pudieron cargar los comentarios. Verifica que el servidor esté funcionando.</p>
+            </div>
+        `;
+    }
+}
+
+// ============ ACTUALIZAR ESTADÍSTICAS ============
+
+function actualizarEstadisticas() {
+    const total = todosComentarios.length;
+    const pendientes = todosComentarios.filter(c => !c.aprobado).length;
+    const aprobados = todosComentarios.filter(c => c.aprobado).length;
+
+    document.getElementById('totalCount').textContent = total;
+    document.getElementById('pendientesCount').textContent = pendientes;
+    document.getElementById('aprobadosCount').textContent = aprobados;
+    
+    document.getElementById('badgeTodos').textContent = total;
+    document.getElementById('badgePendientes').textContent = pendientes;
+    document.getElementById('badgeAprobados').textContent = aprobados;
+}
+
+// ============ RENDERIZAR COMENTARIOS ============
+
+function renderizarComentarios() {
+    const container = document.getElementById('listaComentarios');
+
+    let filtrados = [...todosComentarios];
+    
+    if (filtroActual === 'pendientes') {
+        filtrados = filtrados.filter(c => !c.aprobado);
+    } else if (filtroActual === 'aprobados') {
+        filtrados = filtrados.filter(c => c.aprobado);
+    }
+
+    if (filtrados.length === 0) {
+        container.innerHTML = `
+            <div class="empty">
+                <span class="icon">📭</span>
+                <h3>No hay comentarios</h3>
+                <p>${filtroActual === 'todos' ? 'Los comentarios aparecerán aquí cuando los usuarios los envíen.' : 'No hay comentarios ' + filtroActual}</p>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = filtrados.map(com => {
+        const estado = com.aprobado ? 'aprobado' : 'pendiente';
+        const estadoTexto = com.aprobado ? '✅ Aprobado' : '⏳ Pendiente';
+        const estadoBadge = com.aprobado ? 'badge-aprobado' : 'badge-pendiente';
+        
+        return `
+            <div class="comentario-item ${estado}">
+                <div class="header">
+                    <div>
+                        <span class="nombre">
+                            ${escapeHTML(com.nombre)} ${escapeHTML(com.apellido)}
+                            <span class="id-comentario">#${com.id}</span>
+                        </span>
+                        <span class="badge ${estadoBadge}" style="margin-left:10px;">${estadoTexto}</span>
+                    </div>
+                    <span class="fecha">📅 ${com.fecha}</span>
+                </div>
+                <div class="texto">${escapeHTML(com.comentario)}</div>
+                <div class="acciones">
+                    ${!com.aprobado ? `
+                        <button class="btn btn-aprobar" onclick="aprobarComentario(${com.id})">
+                            <i class="fas fa-check"></i> Aprobar
+                        </button>
+                        <button class="btn btn-rechazar" onclick="rechazarComentario(${com.id})">
+                            <i class="fas fa-times"></i> Rechazar
+                        </button>
+                    ` : `
+                        <button class="btn btn-rechazar" onclick="rechazarComentario(${com.id})">
+                            <i class="fas fa-times"></i> Rechazar
+                        </button>
+                    `}
+                    <button class="btn btn-eliminar" onclick="eliminarComentario(${com.id})">
+                        <i class="fas fa-trash"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+// ============ APROBAR COMENTARIO ============
+
+async function aprobarComentario(id) {
+    const result = await Swal.fire({
+        title: '¿Aprobar comentario?',
+        text: 'Este comentario será visible en la página web',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#10b981',
+        cancelButtonColor: '#6b7280',
+        confirmButtonText: '✅ Aprobar',
+        cancelButtonText: 'Cancelar'
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+        const response = await fetch('../api/aprobar_comentario.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id })
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            Swal.fire('✅ Aprobado', 'El comentario ha sido aprobado correctamente', 'success');
+            cargarComentarios();
+        } else {
+            Swal.fire('❌ Error', data.message, 'error');
+        }
+    } catch (error) {
+        Swal.fire('❌ Error', 'Error de conexión con el servidor', 'error');
+    }
+}
+
+// ============ RECHAZAR COMENTARIO ============
+
+async function rechazarComentario(id) {
+    const result = await Swal.fire({
+        title: '¿Rechazar comentario?',
+        text: 'Este comentario será eliminado permanentemente',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#ef4444',
+        cancelButtonColor: '#6b7280',
+        confirmButtonText: '🗑️ Rechazar',
+        cancelButtonText: 'Cancelar'
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+        const response = await fetch('../api/rechazar_comentario.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id })
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            Swal.fire('🗑️ Eliminado', 'El comentario ha sido rechazado y eliminado', 'success');
+            cargarComentarios();
+        } else {
+            Swal.fire('❌ Error', data.message, 'error');
+        }
+    } catch (error) {
+        Swal.fire('❌ Error', 'Error de conexión con el servidor', 'error');
+    }
+}
+
+// ============ ELIMINAR COMENTARIO ============
+
+async function eliminarComentario(id) {
+    const result = await Swal.fire({
+        title: '¿Eliminar comentario?',
+        text: 'Esta acción no se puede deshacer',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#ef4444',
+        cancelButtonColor: '#6b7280',
+        confirmButtonText: '🗑️ Eliminar',
+        cancelButtonText: 'Cancelar'
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+        const response = await fetch('../api/eliminar_comentario.php', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id })
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            Swal.fire('🗑️ Eliminado', 'El comentario ha sido eliminado permanentemente', 'success');
+            cargarComentarios();
+        } else {
+            Swal.fire('❌ Error', data.message, 'error');
+        }
+    } catch (error) {
+        Swal.fire('❌ Error', 'Error de conexión con el servidor', 'error');
+    }
+}
+
+// ============ FILTROS ============
+
+document.querySelectorAll('.filtro-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        filtroActual = this.dataset.filtro;
+        renderizarComentarios();
+    });
+});
+
+// ============ INICIALIZAR ============
+
+document.addEventListener('DOMContentLoaded', function() {
+    const autenticado = localStorage.getItem('adminAuth') === 'true';
+    mostrarPanel(autenticado);
+});
+
+// Recargar cada 30 segundos
+setInterval(() => {
+    if (document.getElementById('adminPanel').style.display !== 'none') {
+        cargarComentarios();
+    }
+}, 30000);
+
+window.cargarComentarios = cargarComentarios;
+</script>
+
+</body>
+</html>

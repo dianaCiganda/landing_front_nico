@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    img-src 'self' data: https: http: blob:;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
+    font-src 'self' https://fonts.gstatic.com data: https://cdnjs.cloudflare.com;
+    connect-src 'self';
+    media-src 'self';
+    object-src 'none';
+">
+    <title>Nico & Agus - Contacto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link rel="stylesheet" href="../css/contacto.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* ============================================================
+           CONTACTO - ESTILOS COMPLETOS
+           ============================================================ */
+
+        /* ===== VARIABLES ===== */
+        :root {
+            --dark-brown: #3e2d23;
+            --warm-gray: #8b7a6b;
+            --off-white: #f8f5f0;
+            --soft-beige: #c4a882;
+            --light-beige: #ede8e0;
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider-custom {
+            width: 60px;
+            height: 3px;
+            background: var(--warm-gray);
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+
+        /* ============================================================
+           LOGOS DE CONTACTO - ESTILO NEGRO CON HOVER GRIS
+           ============================================================ */
+
+        /* Contenedor de redes sociales */
+        .contact-socials {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Cada item de red social */
+        .contact-social-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--off-white);
+            border-radius: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .contact-social-item:hover {
+            background: rgba(139, 122, 107, 0.1);
+            transform: translateX(4px);
+            border-color: var(--warm-gray);
+        }
+
+        /* Icono del logo - FONDO NEGRO */
+        .contact-social-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover del icono - FONDO GRIS */
+        .contact-social-item:hover .contact-social-icon {
+            background: #6b6b6b;
+            transform: scale(1.05);
+        }
+
+        /* Texto del logo */
+        .contact-social-text {
+            flex: 1;
+        }
+
+        .contact-social-text .title {
+            font-weight: 600;
+            color: var(--dark-brown);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .contact-social-text .subtitle {
+            color: var(--warm-gray);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* Flecha decorativa */
+        .contact-social-arrow {
+            color: var(--warm-gray);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-social-item:hover .contact-social-arrow {
+            transform: translateX(4px);
+            color: var(--dark-brown);
+        }
+
+        /* ===== ESTILO ESPECIAL PARA WHATSAPP ===== */
+        .contact-social-item.whatsapp .contact-social-icon {
+            background: #1a1a1a;
+        }
+
+        .contact-social-item.whatsapp:hover .contact-social-icon {
+            background: #6b6b6b;
+        }
+
+        /* ===== ESTILO ESPECIAL PARA INSTAGRAM ===== */
+        .contact-social-item.instagram .contact-social-icon {
+            background: #1a1a1a;
+        }
+
+        .contact-social-item.instagram:hover .contact-social-icon {
+            background: #6b6b6b;
+        }
+
+        /* ============================================================
+           BOTÓN WHATSAPP - NEGRO CON HOVER GRIS
+           ============================================================ */
+
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 1rem;
+            background: #1a1a1a;
+            color: #ffffff;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-whatsapp:hover {
+            background: #6b6b6b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-whatsapp i {
+            font-size: 1.25rem;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+
+        @media (max-width: 768px) {
+            .grid {
+                gap: 1.5rem;
+            }
+            
+            .bg-white {
+                padding: 1.5rem;
+            }
+            
+            .contact-social-icon {
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                font-size: 1rem;
+            }
+            
+            .contact-social-text .title {
+                font-size: 0.95rem;
+            }
+            
+            .contact-social-text .subtitle {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bg-white {
+                padding: 1rem;
+            }
+            
+            .contact-social-icon {
+                width: 38px;
+                height: 38px;
+                min-width: 38px;
+                font-size: 0.9rem;
+            }
+            
+            .contact-social-item {
+                padding: 0.75rem;
+                gap: 0.75rem;
+            }
+            
+            .contact-social-text .title {
+                font-size: 0.85rem;
+            }
+            
+            .contact-social-text .subtitle {
+                font-size: 0.75rem;
+            }
+            
+            .btn-whatsapp {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============ NAVBAR FIJO ============ -->
+    <nav class="navbar-fixed bg-off-white shadow-custom border-b border-warm-gray/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <div class="logo-container">
+                    <img src="../assets/logo.png" alt="Nico & Agus Logo"
+                        class="w-full h-auto max-h-[85px] object-contain" />
+                </div>
+
+                <!-- Links Desktop -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="../index.html"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        Inicio
+                    </a>
+                    <a href="./SobreNosotros.html"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        Sobre Nosotros
+                    </a>
+                    <a href="./galeria.html"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        Galería
+                    </a>
+                    <a href="./PreguntasFrecuentes.html"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        Preguntas Frecuentes
+                    </a>
+                    <a href="./Contacto.html"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10 bg-warm-gray/10">
+                        Contacto
+                    </a>
+                    <!-- ===== ADMIN ===== -->
+                    <a href="../admin/"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        <i class="fas fa-crown"></i> Admin
+                    </a>
+                </div>
+
+                <!-- Botón CTA -->
+                <div class="hidden md:block">
+                    <a href="ReservaForm.html">
+                        <button
+                            class="bg-dark-brown text-off-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom shadow-md hover:shadow-lg">
+                            Reservar Cita
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Menú Hamburguesa -->
+                <div class="md:hidden">
+                    <button id="menu-toggle"
+                        class="text-dark-brown hover:text-warm-gray focus:outline-none p-2 rounded-lg hover:bg-warm-gray/10 transition-custom">
+                        <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="md:hidden bg-off-white border-t border-warm-gray/30">
+            <div class="px-4 pt-3 pb-5 space-y-1.5">
+                <a href="../index.html"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    Inicio
+                </a>
+                <a href="./SobreNosotros.html"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    Sobre Nosotros
+                </a>
+                <a href="./galeria.html"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    Galería
+                </a>
+                <a href="./PreguntasFrecuentes.html"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    Preguntas Frecuentes
+                </a>
+                <a href="./Contacto.html"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    Contacto
+                </a>
+                <!-- ===== ADMIN MÓVIL ===== -->
+                <a href="../admin/"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    <i class="fas fa-crown"></i> Admin
+                </a>
+                <div class="pt-3">
+                    <a href="ReservaForm.html">
+                        <button
+                            class="w-full bg-dark-brown text-off-white px-6 py-3 rounded-full text-base font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom">
+                            Reservar Cita
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ CONTENIDO PRINCIPAL ============ -->
+    <main class="bg-off-white pattern-bg pt-20">
+
+        <!-- ===== ENCABEZADO ===== -->
+        <section class="py-12 md:py-16 border-b border-warm-gray/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-brown">
+                    <span class="text-warm-gray">Contacto</span>
+                </h1>
+                <div class="divider-custom mt-4"></div>
+                <p class="text-dark-brown/60 text-sm md:text-base mt-4 max-w-2xl mx-auto">
+                    Seguinos en nuestras redes sociales o contactanos directamente por WhatsApp
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== SECCIÓN CONTACTO ===== -->
+        <section class="py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    
+                    <!-- ===== COLUMNA IZQUIERDA: REDES SOCIALES ===== -->
+                    <div class="bg-white rounded-3xl shadow-lg p-8 border border-warm-gray/20">
+                        <h3 class="text-xl font-bold text-dark-brown mb-6 text-center">
+                            Nuestras <span class="text-warm-gray">Redes</span>
+                        </h3>
+                        
+                        <div class="contact-socials">
+                            
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/nico.ciganda?igsh=MWdweHU2NjBreXp1Mg%3D%3D" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="contact-social-item instagram">
+                                <div class="contact-social-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <div class="contact-social-text">
+                                    <p class="title">Instagram</p>
+                                    <p class="subtitle">@nico.ciganda</p>
+                                </div>
+                                <span class="contact-social-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </a>
+
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/5492922452205" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="contact-social-item whatsapp">
+                                <div class="contact-social-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="contact-social-text">
+                                    <p class="title">WhatsApp</p>
+                                    <p class="subtitle">+54 9 2922 45-2205</p>
+                                </div>
+                                <span class="contact-social-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <!-- ===== COLUMNA DERECHA: HORARIOS Y WHATSAPP ===== -->
+                    <div class="bg-white rounded-3xl shadow-lg p-8 border border-warm-gray/20">
+                        <h3 class="text-xl font-bold text-dark-brown mb-6 text-center">
+                            Horarios de <span class="text-warm-gray">Atención</span>
+                        </h3>
+                        
+                        <div class="space-y-3">
+                            <div class="flex justify-between py-2 border-b border-warm-gray/10">
+                                <span class="text-dark-brown/70">Martes a Viernes</span>
+                                <span class="font-semibold text-dark-brown">09:00 - 21:00</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-warm-gray/10">
+                                <span class="text-dark-brown/70">Sábados</span>
+                                <span class="font-semibold text-dark-brown">09:00 - 21:00</span>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span class="text-dark-brown/70">Domingos y Lunes</span>
+                                <span class="font-semibold text-warm-gray">Cerrado</span>
+                            </div>
+                        </div>
+
+                        <!-- Botón WhatsApp -->
+                        <div class="mt-8 pt-6 border-t border-warm-gray/20">
+                            <a href="https://wa.me/5492922452205" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                Escribinos por WhatsApp
+                            </a>
+                            <p class="text-xs text-dark-brown/50 text-center mt-3">
+                                Respondemos en menos de 24 horas
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ FOOTER ============ -->
+        <footer class="bg-dark-brown text-off-white py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-sm text-off-white/70">
+                    © 2026 <span class="font-semibold text-off-white">Nico & Agus</span> Hair & Makeup Artists
+                </p>
+                <p class="text-xs text-off-white/50 mt-1">Nuestras Redes Sociales</p>
+
+                <div class="flex justify-center gap-8 mt-4 text-2xl">
+                    <a href="https://wa.me/5492922452205" target="_blank" rel="noopener noreferrer"
+                        class="text-off-white/80 hover:text-white transition-custom hover:scale-110 transform duration-200"
+                        aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/nico.ciganda?igsh=MWdweHU2NjBreXp1Mg%3D%3D" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-off-white/80 hover:text-white transition-custom hover:scale-110 transform duration-200"
+                        aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="../js/contacto.js"></script>
+
+</body>
+</html>

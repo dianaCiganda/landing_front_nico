@@ -4,16 +4,253 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    img-src 'self' data: https: http: blob:;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
+    font-src 'self' https://fonts.gstatic.com data: https://cdnjs.cloudflare.com;
+    connect-src 'self';
+    media-src 'self';
+    object-src 'none';
+">
     <title>Nico & Agus - Sobre Nosotros</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/estilos.css" />
     <link rel="stylesheet" href="../css/SobreNosotros.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* ============================================================
+           SOBRE NOSOTROS - ESTILOS PARA TEXTO OSCURO
+           ============================================================ */
+        
+        .story-text p {
+            color: #2d1f14 !important;
+            font-weight: 400;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+        
+        .story-text strong {
+            color: #3e2d23;
+            font-weight: 700;
+        }
+        
+        /* ===== TESTIMONIO / CITA DESTACADA ===== */
+        .story-text .testimonio {
+            color: #2d1f14 !important;
+            font-style: italic;
+            padding: 1.5rem 2rem;
+            background: #f8f5f0;
+            border-radius: 12px;
+            border-left: 4px solid #c4a882;
+            margin-top: 1.5rem;
+            font-weight: 500;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        .story-text .testimonio strong {
+            color: #3e2d23;
+        }
+        
+        .story-text .testimonio::before {
+            content: '"';
+            font-size: 2rem;
+            color: #c4a882;
+            margin-right: 0.25rem;
+        }
+        
+        .story-text .testimonio::after {
+            content: '"';
+            font-size: 2rem;
+            color: #c4a882;
+            margin-left: 0.25rem;
+        }
+        
+        /* ===== DIVIDER ===== */
+        .divider-custom {
+            width: 60px;
+            height: 3px;
+            background: #8b7a6b;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+        
+        /* ===== CARRUSEL ===== */
+        .carousel-gallery-container {
+            position: relative;
+            width: 70%;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #1B1714;
+            box-shadow: 0 12px 35px rgba(0,0,0,.18);
+        }
+
+        .carousel-gallery-slides {
+            position: relative;
+            width: 100%;
+            min-height: 300px;
+        }
+
+        .carousel-gallery-slide {
+            display: none;
+            animation: fade .5s ease;
+        }
+
+        .carousel-gallery-slide.active {
+            display: block;
+        }
+
+        .carousel-gallery-slide img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        @keyframes fade {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
+        .carousel-gallery-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            cursor: pointer;
+            font-size: 24px;
+            transition: 0.25s;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-gallery-btn:hover {
+            background: rgba(0,0,0,0.8);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .carousel-gallery-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-gallery-btn.next {
+            right: 15px;
+        }
+
+        .carousel-gallery-dots {
+            position: absolute;
+            left: 50%;
+            bottom: 18px;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            background: rgba(0,0,0,0.45);
+            padding: 8px 14px;
+            border-radius: 30px;
+            z-index: 20;
+        }
+
+        .carousel-gallery-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #bbb;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .carousel-gallery-dot.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 992px) {
+            .carousel-gallery-container {
+                width: 85%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-gallery-container {
+                width: 94%;
+            }
+            .carousel-gallery-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 20px;
+            }
+            .carousel-gallery-slide img {
+                max-height: 400px;
+            }
+            .story-text p {
+                font-size: 0.95rem;
+            }
+            .story-text .testimonio {
+                font-size: 0.95rem;
+                padding: 1.25rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-gallery-container {
+                width: 98%;
+            }
+            .carousel-gallery-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+            .carousel-gallery-slide img {
+                max-height: 300px;
+            }
+            .story-text p {
+                font-size: 0.9rem;
+            }
+            .story-text .testimonio {
+                font-size: 0.9rem;
+                padding: 1rem 1.25rem;
+            }
+        }
+
+        /* ===== MENÚ MÓVIL ===== */
+        #mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #f8f5f0;
+            border-top: 1px solid rgba(139, 122, 107, 0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            z-index: 1000;
+            max-height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+
+        #mobile-menu.open {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- ============ NAVBAR FIJO ============ -->
-    <nav class="navbar-fixed bg-off-white shadow-custom border-b border-warm-gray/30">
+    <nav class="navbar-fixed bg-off-white shadow-custom border-b border-warm-gray/30" style="position:fixed; top:0; left:0; right:0; z-index:999; background:#f8f5f0;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
 
@@ -33,26 +270,32 @@
                         class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10 bg-warm-gray/10">
                         Sobre Nosotros
                     </a>
-                    <a href="#"
+                    <a href="./Galeria.html"
                         class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
                         Galería
                     </a>
-                    <a href="#"
+                    <a href="./PreguntasFrecuentes.html"
                         class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
                         Preguntas Frecuentes
                     </a>
-                    <a href="#"
+                    <a href="./Contacto.html"
                         class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
                         Contacto
+                    </a>
+                    <a href="../admin/"
+                        class="text-dark-brown hover:text-warm-gray px-4 py-2 rounded-lg text-sm font-medium transition-custom hover:bg-warm-gray/10">
+                        <i class="fas fa-crown"></i> Admin
                     </a>
                 </div>
 
                 <!-- Botón CTA -->
                 <div class="hidden md:block">
-                    <button
-                        class="bg-dark-brown text-off-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom shadow-md hover:shadow-lg">
-                        Reservar Cita
-                    </button>
+                    <a href="ReservaForm.html">
+                        <button
+                            class="bg-dark-brown text-off-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom shadow-md hover:shadow-lg">
+                            Reservar Cita
+                        </button>
+                    </a>
                 </div>
 
                 <!-- Menú Hamburguesa -->
@@ -80,35 +323,40 @@
                     class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
                     Sobre Nosotros
                 </a>
-                <a href="#"
+                <a href="./Galeria.html"
                     class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
                     Galería
                 </a>
-                <a href="#"
+                <a href="./PreguntasFrecuentes.html"
                     class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
                     Preguntas Frecuentes
                 </a>
-                <a href="#"
+                <a href="./Contacto.html"
                     class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
                     Contacto
                 </a>
+                <a href="../admin/"
+                    class="block text-dark-brown hover:text-warm-gray hover:bg-warm-gray/10 px-4 py-2.5 rounded-lg text-base font-medium transition-custom">
+                    <i class="fas fa-crown"></i> Admin
+                </a>
                 <div class="pt-3">
-                    <button
-                        class="w-full bg-dark-brown text-off-white px-6 py-3 rounded-full text-base font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom">
-                        Reservar Cita
-                    </button>
+                    <a href="ReservaForm.html">
+                        <button
+                            class="w-full bg-dark-brown text-off-white px-6 py-3 rounded-full text-base font-semibold hover:bg-warm-gray hover:text-dark-brown transition-custom">
+                            Reservar Cita
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- ============ CONTENIDO PRINCIPAL ============ -->
-    <main class="bg-off-white pattern-bg pt-20">
+    <main class="bg-off-white pattern-bg" style="margin-top:80px;">
 
         <!-- ===== ENCABEZADO ===== -->
         <section class="py-12 md:py-16 border-b border-warm-gray/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-             
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-brown">
                     Nuestra<span class="text-warm-gray">Historia</span>
                 </h1>
@@ -151,41 +399,38 @@
                         <p>
                             Más allá del maquillaje y el peinado, nuestro objetivo es que cada persona se lleve mucho más que un look. Queremos que se sienta acompañada, cuidada y segura de sí misma. Cuando empecé soñaba con poder vivir de lo que amo y crecer haciendo lo que me apasiona. Hoy ese sueño es una realidad, pero mis ganas de seguir capacitándome, evolucionando y brindando lo mejor en cada trabajo siguen intactas.
                         </p>
-                        <p class="text-soft-beige font-medium text-lg">
-                            "Por eso me entusiasmó formar parte de este proyecto junto a Nico. Porque siento que compartimos la misma pasión, el mismo compromiso y las mismas ganas de ofrecer una experiencia donde cada detalle importa. Estoy convencida de que cuando trabajás con amor y dedicación, eso se nota, y es justamente lo que queremos transmitir en cada servicio."
-                        </p>
+                        <!-- TESTIMONIO CON TEXTO OSCURO -->
+                        <div class="testimonio">
+                            Por eso me entusiasmó formar parte de este proyecto junto a Nico. Porque siento que compartimos la misma pasión, el mismo compromiso y las mismas ganas de ofrecer una experiencia donde cada detalle importa. Estoy convencida de que cuando trabajás con amor y dedicación, eso se nota, y es justamente lo que queremos transmitir en cada servicio.
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== CARRUSEL 1 - TRABAJOS DE AGUS (CORREGIDO) ===== -->
+        <!-- ===== CARRUSEL 1 - TRABAJOS DE AGUS ===== -->
         <section class="py-12 md:py-16 bg-soft-beige/5 border-t border-warm-gray/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
+                <h3 class="text-2xl font-bold text-dark-brown text-center mb-8">
+                    Trabajos de <span class="text-warm-gray">Agus</span>
+                </h3>
                 <div class="carousel-gallery-container">
                     <div class="carousel-gallery-slides" id="carouselAgus">
-                        <!-- Slide 2 -->
                         <div class="carousel-gallery-slide">
-                            <img src="../assets/agus-maquillaje/2.jpeg" alt="Trabajo de maquillaje 2" />
+                            <img src="../assets/agus-maquillaje/agus.PNG" alt="Trabajo de maquillaje" />
                         </div>
-                        <!-- Slide 3 -->
                         <div class="carousel-gallery-slide">
-                            <img src="../assets/agus-maquillaje/3.jpeg" alt="Trabajo de maquillaje 3" />
+                            <img src="../assets/agus-maquillaje/3.PNG" alt="Trabajo de maquillaje" />
                         </div>
-                        <!-- Slide 4 -->
                         <div class="carousel-gallery-slide">
-                            <img src="../assets/agus-maquillaje/4.jpeg" alt="Trabajo de maquillaje 4" />
+                            <img src="../assets/agus-maquillaje/4.jpg" alt="Trabajo de maquillaje" />
                         </div>
-                        <!-- Slide 5 -->
                         <div class="carousel-gallery-slide">
-                            <img src="../assets/agus-maquillaje/5.jpeg" alt="Trabajo de maquillaje 5" />
+                            <img src="../assets/agus-maquillaje/5.jpeg" alt="Trabajo de maquillaje" />
                         </div>
-                    </div> <!-- ← ESTE ES EL CIERRE QUE FALTABA -->
-
+                    </div>
                     <button class="carousel-gallery-btn prev" id="prevAgus">‹</button>
                     <button class="carousel-gallery-btn next" id="nextAgus">›</button>
-
                     <div class="carousel-gallery-dots" id="dotsAgus"></div>
                 </div>
             </div>
@@ -232,9 +477,10 @@
                         <p>
                             <strong>Nuestro sueño es llevar este concepto a todo el sur de la provincia de Buenos Aires</strong>, acompañando novias, quinceañeras, madrinas, invitadas y egresadas donde sea que estén.
                         </p>
-                        <p class="text-soft-beige font-medium text-lg">
-                            "Porque los recuerdos más importantes empiezan mucho antes del evento. Y para nosotros, será un honor formar parte de esa historia."
-                        </p>
+                        <!-- TESTIMONIO CON TEXTO OSCURO -->
+                        <div class="testimonio">
+                            Porque los recuerdos más importantes empiezan mucho antes del evento. Y para nosotros, será un honor formar parte de esa historia.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -243,174 +489,54 @@
         <!-- ===== CARRUSEL 2 - TRABAJOS DE NICO ===== -->
         <section class="py-12 md:py-16 bg-soft-beige/5 border-t border-warm-gray/20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-2xl font-bold text-dark-brown text-center mb-8">
+                    Trabajos de <span class="text-warm-gray">Nico</span>
+                </h3>
                 <div class="carousel-gallery-container">
                     <div class="carousel-gallery-slides" id="carouselNico">
-                        <!-- Slide 1 -->
                         <div class="carousel-gallery-slide">
-                            <img src="../assets/producciones/a.jpeg" alt="Trabajo de peinado 1" />
+                            <img src="../assets/carrusel-nico/1.PNG" alt="Trabajo de peinado" />
                         </div>
-                        <!-- Slide 2 -->
                         <div class="carousel-gallery-slide">
-                            <img src="../assets/dos.jpeg" alt="Trabajo de peinado 2" />
+                            <img src="../assets/carrusel-nico/2.PNG" alt="Trabajo de peinado" />
                         </div>
-                        <!-- Slide 3 -->
                         <div class="carousel-gallery-slide">
-                            <img src="../assets/producciones/ad.jpeg" alt="Trabajo de maquillaje 1" />
-                        </div>
-                        <!-- Slide 4 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/cuatro.jpeg" alt="Trabajo de peinado 3" />
-                        </div>
-                        <!-- Slide 5 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/producciones/ac.jpeg" alt="Trabajo de peinado 4" />
-                        </div>
-                        <!-- Slide 6 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/seis.jpeg" alt="Trabajo de maquillaje 2" />
-                        </div>
-                        <!-- Slide 7 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/producciones/ae.jpeg" alt="Trabajo de peinado 5" />
-                        </div>
-                        <!-- Slide 8 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/ocho.jpeg" alt="Trabajo de peinado 6" />
+                            <img src="../assets/carrusel-nico/3.PNG" alt="Trabajo de maquillaje" />
                         </div>
                     </div>
-
                     <button class="carousel-gallery-btn prev" id="prevNico">‹</button>
                     <button class="carousel-gallery-btn next" id="nextNico">›</button>
-
                     <div class="carousel-gallery-dots" id="dotsNico"></div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== TESTIMONIOS ===== -->
-        <section class="py-12 md:py-16 bg-soft-beige/20 border-t border-warm-gray/20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-bold text-dark-brown">
-                        Lo que dicen <span class="text-warm-gray">nuestras clientas</span>
-                    </h2>
-                    <div class="divider-custom mt-3"></div>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-
-                    <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg border border-warm-gray/20">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-soft-beige flex items-center justify-center text-xl font-bold text-dark-brown">
-                                MC
-                            </div>
-                            <div>
-                                <p class="font-bold text-dark-brown">María C.</p>
-                                <p class="text-xs text-warm-gray">Novia - 2025</p>
-                                <div class="flex text-soft-beige text-sm mt-1">★★★★★</div>
-                            </div>
-                        </div>
-                        <p class="text-dark-brown/80 text-base italic leading-relaxed">
-                            "El peinado para mi boda fue perfecto. Me sentí como una princesa. 
-                            ¡Gracias Nico & Agus por hacer de mi día algo aún más especial!"
-                        </p>
-                    </div>
-
-                    <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg border border-warm-gray/20">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-14 h-14 rounded-full bg-warm-gray flex items-center justify-center text-xl font-bold text-off-white">
-                                AR
-                            </div>
-                            <div>
-                                <p class="font-bold text-dark-brown">Ana R.</p>
-                                <p class="text-xs text-warm-gray">Gala - 2025</p>
-                                <div class="flex text-soft-beige text-sm mt-1">★★★★★</div>
-                            </div>
-                        </div>
-                        <p class="text-dark-brown/80 text-base italic leading-relaxed">
-                            "Increíble atención al detalle. Mi estilo de gala fue un éxito. 
-                            ¡Recomendado 100%! Se nota la pasión que le ponen a su trabajo."
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== CARRUSEL 3 - NUESTROS MEJORES MOMENTOS ===== -->
-        <section class="py-12 md:py-16 bg-soft-beige/5 border-t border-warm-gray/20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-10">
-                    <h2 class="text-2xl md:text-3xl font-bold text-dark-brown">
-                        <span class="text-warm-gray">Nuestros Mejores Momentos</span>
-                    </h2>
-                    <div class="divider-custom mt-3"></div>
-                </div>
-
-                <div class="carousel-gallery-container">
-                    <div class="carousel-gallery-slides" id="carouselMejores">
-                        <!-- Slide 1 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/nueve.jpeg" alt="Momento 1" />
-                        </div>
-                        <!-- Slide 2 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/diez.jpeg" alt="Momento 2" />
-                        </div>
-                        <!-- Slide 3 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/mexico.jpeg" alt="Momento 3" />
-                        </div>
-                        <!-- Slide 4 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/trece.jpeg" alt="Momento 4" />
-                        </div>
-                        <!-- Slide 5 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/catorce.jpeg" alt="Momento 5" />
-                        </div>
-                        <!-- Slide 6 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/quince.jpeg" alt="Momento 6" />
-                        </div>
-                        <!-- Slide 7 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/dieciseis.jpeg" alt="Momento 7" />
-                        </div>
-                        <!-- Slide 8 -->
-                        <div class="carousel-gallery-slide">
-                            <img src="../assets/diecisiete.jpeg" alt="Momento 8" />
-                        </div>
-                    </div>
-
-                    <button class="carousel-gallery-btn prev" id="prevMejores">‹</button>
-                    <button class="carousel-gallery-btn next" id="nextMejores">›</button>
-
-                    <div class="carousel-gallery-dots" id="dotsMejores"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== FOOTER ===== -->
+        <!-- ============ FOOTER ============ -->
         <footer class="bg-dark-brown text-off-white py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <p class="text-sm text-off-white/70">
-                    © 2026 <span class="font-semibold text-off-white">Nico & Agus</span> —
-                    Hair & Makeup Artists
+                    © 2026 <span class="font-semibold text-off-white">Nico & Agus</span> Hair & Makeup Artists
                 </p>
-                <p class="text-xs text-off-white/50 mt-1">
-                    Hecho con amor y dedicación para resaltar tu belleza en cada ocasión.
-                </p>
-                <div class="flex justify-center gap-6 mt-3 text-sm text-off-white/60">
-                    <a href="#" class="hover:text-soft-beige transition-custom">Instagram</a>
-                    <a href="#" class="hover:text-soft-beige transition-custom">Facebook</a>
-                    <a href="#" class="hover:text-soft-beige transition-custom">Pinterest</a>
+                <p class="text-xs text-off-white/50 mt-1">Nuestras Redes Sociales</p>
+
+                <div class="flex justify-center gap-8 mt-4 text-2xl">
+                    <a href="https://wa.me/5492922452205" target="_blank" rel="noopener noreferrer"
+                        class="text-off-white/80 hover:text-white transition-custom hover:scale-110 transform duration-200"
+                        aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/nico.ciganda?igsh=MWdweHU2NjBreXp1Mg==" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-off-white/80 hover:text-white transition-custom hover:scale-110 transform duration-200"
+                        aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         </footer>
 
     </main>
 
-    <script src="../js/SobreNosotros.js"></script>
+  <script src="../js/SobreNosotros.js"></script>
 </body>
-
 </html>
