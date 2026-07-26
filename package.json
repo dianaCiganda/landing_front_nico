@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "postcss ./css/estilos.css -o ./css/output.css",
-  "watch": "tailwindcss -i ./css/estilos.css -o ./css/output.css --watch"
+    "watch": "tailwindcss -i ./css/estilos.css -o ./css/output.css --watch"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/dianaCiganda/landing_front_nico#readme",
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.3",
     "autoprefixer": "^10.5.4",
     "postcss": "^8.5.23",
     "postcss-cli": "^11.0.1",
